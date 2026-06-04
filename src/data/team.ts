@@ -1,15 +1,16 @@
 import icon from '../assets/icon.jpeg'
+import ceo from '../assets/ceo.jpeg'
 
 export const team = [
   {
     name: 'Gregory Steve',
     position: 'Founder & Creator',
-    image: icon,
+    image: ceo,
     bio: 'Gregory will provide his final approved biography before public launch.',
     quote: 'We are building civic technology that turns everyday observations into public accountability.',
-    email: 'Contact details to be provided',
-    whatsapp: 'WhatsApp to be provided',
-    linkedin: 'LinkedIn to be provided',
+    email: 'gregorysteve656@gmail.com',
+    whatsapp: '+254719637416',
+    instagram: 'reddevcode',
   },
   {
     name: 'Lenox Okoth',
@@ -19,7 +20,7 @@ export const team = [
     quote: 'Responsible participation becomes powerful when communities can organize evidence clearly.',
     email: 'Contact details to be provided',
     whatsapp: 'WhatsApp to be provided',
-    linkedin: 'LinkedIn to be provided',
+    instagram: 'Instagram to be provided',
   },
   {
     name: 'Chloe Jane',
@@ -29,7 +30,7 @@ export const team = [
     quote: 'Trust starts with transparency, safety, and tools that respect the people using them.',
     email: 'Contact details to be provided',
     whatsapp: 'WhatsApp to be provided',
-    linkedin: 'LinkedIn to be provided',
+    instagram: 'Instagram to be provided',
   },
   {
     name: 'Steven Khayadi',
@@ -39,7 +40,7 @@ export const team = [
     quote: 'Local context matters. SIVIQ is designed to make county and sub-county voices easier to see.',
     email: 'Contact details to be provided',
     whatsapp: 'WhatsApp to be provided',
-    linkedin: 'LinkedIn to be provided',
+    instagram: 'Instagram to be provided',
   },
   {
     name: 'Emmanuel Blessing',
@@ -49,6 +50,6 @@ export const team = [
     quote: 'Accountability should feel practical, secure, and useful for real communities.',
     email: 'Contact details to be provided',
     whatsapp: 'WhatsApp to be provided',
-    linkedin: 'LinkedIn to be provided',
+    instagram: 'Instagram to be provided',
   },
 ]
