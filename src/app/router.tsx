@@ -10,6 +10,7 @@ import { LeadershipPage } from '../pages/LeadershipPage'
 import { MaintenancePage } from '../pages/MaintenancePage'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { PrivacyPolicyPage } from '../pages/PrivacyPolicyPage'
+import { SafetyStandardsPage } from '../pages/SafetyStandardsPage'
 import { TermsPage } from '../pages/TermsPage'
 
 export function AppRouter() {
@@ -26,6 +27,7 @@ export function AppRouter() {
         <Route element={<DataSafetyPage />} path="/data-safety" />
         <Route element={<AccountDeletionPage />} path="/account-deletion" />
         <Route element={<MaintenancePage />} path="/maintenance" />
+        <Route element={<SafetyStandardsPage />} path="/safety-standards" />
         <Route element={<NotFoundPage />} path="*" />
       </Routes>
     </PageShell>

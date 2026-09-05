@@ -47,6 +47,7 @@ export const navigation = [
   { label: 'Leadership', href: '/leadership' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms', href: '/terms' },
+  { label: 'Safety Standards', href: '/safety-standards' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -58,6 +59,7 @@ export const footerLinks = [
   { label: 'Terms', href: '/terms' },
   { label: 'Community Guidelines', href: '/community-guidelines' },
   { label: 'Data Safety', href: '/data-safety' },
+  { label: 'Safety Standards', href: '/safety-standards' },
   { label: 'Account Deletion', href: '/account-deletion' },
   { label: 'Contact', href: '/contact' },
 ]
