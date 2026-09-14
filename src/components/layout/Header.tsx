@@ -2,7 +2,6 @@ import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { navigation, site } from '../../data/site'
-import { Button } from '../ui/Button'
 
 export function Header() {
   const [open, setOpen] = useState(false)
@@ -29,7 +28,7 @@ export function Header() {
               {item.label}
             </NavLink>
           ))}
-          <Button disabled>Download App</Button>
+          <a className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#0B6E4F] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#095f45]" href={site.downloadLinks.android} rel="noreferrer" target="_blank">Download App</a>
         </nav>
 
         <button
@@ -59,7 +58,7 @@ export function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <Button disabled>Download App</Button>
+            <a className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#0B6E4F] px-5 py-2.5 text-center text-sm font-semibold text-white" href={site.downloadLinks.android} rel="noreferrer" target="_blank">Download App</a>
           </div>
         </nav>
       )}

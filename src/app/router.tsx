@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { PageShell } from '../components/layout/PageShell'
 import { AboutPage } from '../pages/AboutPage'
-import { AccountDeletionPage } from '../pages/AccountDeletionPage'
+import { AppHandoffPage, DeleteAccountPage, ForgotPasswordPage, LoginPage, ResetPasswordPage } from '../pages/AccountAuthPages'
 import { CommunityGuidelinesPage } from '../pages/CommunityGuidelinesPage'
 import { ContactPage } from '../pages/ContactPage'
 import { DataSafetyPage } from '../pages/DataSafetyPage'
@@ -25,7 +25,12 @@ export function AppRouter() {
         <Route element={<TermsPage />} path="/terms" />
         <Route element={<CommunityGuidelinesPage />} path="/community-guidelines" />
         <Route element={<DataSafetyPage />} path="/data-safety" />
-        <Route element={<AccountDeletionPage />} path="/account-deletion" />
+        <Route element={<DeleteAccountPage />} path="/delete-account" />
+        <Route element={<DeleteAccountPage />} path="/account-deletion" />
+        <Route element={<LoginPage />} path="/login" />
+        <Route element={<ForgotPasswordPage />} path="/forgot-password" />
+        <Route element={<ResetPasswordPage />} path="/reset-password" />
+        <Route element={<AppHandoffPage />} path="/app/login" />
         <Route element={<MaintenancePage />} path="/maintenance" />
         <Route element={<SafetyStandardsPage />} path="/safety-standards" />
         <Route element={<NotFoundPage />} path="*" />

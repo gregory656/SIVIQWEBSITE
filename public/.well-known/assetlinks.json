@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.siviq.africa",
+      "sha256_cert_fingerprints": [
+        "29:D9:64:DE:D2:D4:FE:93:68:8C:CD:96:23:1E:20:75:C8:A8:2F:56:3C:1E:68:2B:40:46:7F:DA:CC:BD:B9:B3"
+      ]
+    }
+  }
+]

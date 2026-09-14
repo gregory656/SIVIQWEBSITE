@@ -1,12 +1,10 @@
-import icon from '../assets/icon.jpeg'
-
 export const site = {
   name: 'SIVIQ Africa',
   productName: 'SIVIQ',
   tagline: 'Building better community together',
-  domain: 'https://siviq.africa',
-  logo: icon,
-  ogImage: icon,
+  domain: 'https://siviq.top',
+  logo: '/civic.png',
+  ogImage: '/civic.png',
   emails: {
     support: 'support@siviq.africa',
     info: 'info@siviq.africa',
@@ -14,7 +12,7 @@ export const site = {
   },
   whatsapp: '+254719637416',
   downloadLinks: {
-    android: '',
+    android: 'https://play.google.com/store/apps/details?id=com.siviq.africa',
     ios: '',
   },
   socials: {

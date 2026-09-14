@@ -35,16 +35,16 @@ export function HomePage() {
               SIVIQ is an independent civic accountability platform helping communities report, discuss, verify, and track public projects across Kenya.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button disabled>
+              <a className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#0B6E4F] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#095f45]" href={site.downloadLinks.android} rel="noreferrer" target="_blank">
                 <Download aria-hidden size={18} />
                 Download App
-              </Button>
+              </a>
               <Button href="/about" variant="secondary">
                 Read More About SIVIQ
                 <ArrowRight aria-hidden size={18} />
               </Button>
             </div>
-            <p className="mt-4 text-sm text-white/70">Play Store links will be available once we launch the app.</p>
+            <p className="mt-4 text-sm text-white/70">Available for Android on Google Play.</p>
           </div>
 
           <div className="scroll-board relative mx-auto max-w-md p-6 text-[#2b2117]">

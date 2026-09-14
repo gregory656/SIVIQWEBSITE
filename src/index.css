@@ -33,6 +33,30 @@ textarea {
   font: inherit;
 }
 
+.field-label {
+  display: block;
+  color: #1f2937;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  margin-top: 0.45rem;
+  min-height: 3rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.7rem 0.85rem;
+  color: #121212;
+}
+
+.field:focus {
+  border-color: #0b6e4f;
+  outline: 2px solid rgba(11, 110, 79, 0.18);
+}
+
 :focus-visible {
   outline: 3px solid #ffb703;
   outline-offset: 3px;
