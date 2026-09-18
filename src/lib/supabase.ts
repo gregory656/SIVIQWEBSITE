@@ -14,4 +14,4 @@ export const supabase = createClient(url, anonKey, {
   },
 })
 
-export const appLoginUrl = 'https://siviq.top/app/login'
+export const appLoginUrl = 'https://siviq.top/app/login?intent=login&kenyan=true'
