@@ -69,36 +69,40 @@ export function ResetPasswordPage() {
   return <AuthFrame title="Create a new password" description="Choose a strong password you do not use elsewhere.">{!ready ? <NoticeBox notice={{ kind: 'error', text: 'This reset link is invalid or expired. Request a new one.' }} /> : <form onSubmit={submit}><label className="field-label">New password<input autoComplete="new-password" className="field" minLength={8} onChange={(e) => setPassword(e.target.value)} required type="password" value={password} /></label><label className="field-label mt-4">Confirm new password<input autoComplete="new-password" className="field" minLength={8} onChange={(e) => setConfirm(e.target.value)} required type="password" value={confirm} /></label><SubmitButton loading={loading}>Update password</SubmitButton></form>}<NoticeBox notice={notice} />{notice?.kind === 'success' && <a className="mt-5 block text-center font-semibold text-[#0B6E4F] hover:underline" href="/app/login">Return to SIVIQ</a>}</AuthFrame>
 }
 
-export function AppHandoffPage() {
-  useEffect(() => { const timer = window.setTimeout(() => { window.location.href = 'siviq://login' }, 300); return () => window.clearTimeout(timer) }, [])
-  return <AuthFrame title="Return to SIVIQ" description="We’re opening the SIVIQ app on your device."><a className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#0B6E4F] px-5 py-3 font-semibold text-white" href="siviq://login">Open SIVIQ</a><p className="mt-5 text-center text-sm text-slate-600">If the app does not open, install or update SIVIQ from Google Play, then try again.</p></AuthFrame>
-}
-
 export function OAuthAppHandoffPage() {
+  const navigate = useNavigate()
   const location = useLocation()
-  const [state, setState] = useState<{
-    destination: string
-    error: string | null
-    ready: boolean
-  }>({ destination: '', error: null, ready: false })
+
+  type Phase =
+    | { status: 'loading' }
+    | { status: 'welcome_back'; name: string }
+    | { status: 'account_exists'; name: string }
+    | { status: 'error'; message: string }
+
+  const [phase, setPhase] = useState<Phase>({ status: 'loading' })
 
   useEffect(() => {
     let active = true
-    let timer: number | undefined
+    let timer: ReturnType<typeof window.setTimeout> | undefined
 
-    const finishCallback = async () => {
+    const run = async () => {
       const callbackUrl = new URL(window.location.href)
       const requestedIntent = callbackUrl.searchParams.get('intent') === 'signup' ? 'signup' : 'login'
       const isKenyan = callbackUrl.searchParams.get('kenyan') !== 'false'
       const code = callbackUrl.searchParams.get('code')
 
+      // Exchange the OAuth code first, then immediately clean the URL so that
+      // the browser Back button cannot replay the code or expose tokens.
       if (code) {
         const { error } = await supabase.auth.exchangeCodeForSession(code)
         if (error) throw error
       }
 
+      // Strip all OAuth params from the URL right away.
+      window.history.replaceState(null, '', '/app/login')
+
       const { data: { user }, error: userError } = await supabase.auth.getUser()
-      if (userError || !user) throw userError ?? new Error('No authenticated user was returned.')
+      if (userError || !user) throw userError ?? new Error('No authenticated user.')
 
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
@@ -108,33 +112,43 @@ export function OAuthAppHandoffPage() {
       if (profileError) throw profileError
 
       const hasCompletedProfile = Boolean(profile?.display_name?.trim() && profile?.username?.trim())
-      const intent = hasCompletedProfile ? 'login' : requestedIntent === 'signup' ? 'signup' : 'signup'
-      const name = typeof user.user_metadata.full_name === 'string'
-        ? user.user_metadata.full_name
-        : typeof user.user_metadata.name === 'string'
-          ? user.user_metadata.name
-          : ''
-      const appParameters = new URLSearchParams({
-        intent,
-        kenyan: String(isKenyan),
-        name,
-        email: user.email ?? '',
-      })
-      const destination = `siviq://login?${appParameters}`
+      const displayName = profile?.display_name?.trim() ?? ''
+      const googleName =
+        typeof user.user_metadata.full_name === 'string'
+          ? user.user_metadata.full_name
+          : typeof user.user_metadata.name === 'string'
+            ? user.user_metadata.name
+            : ''
+      const email = user.email ?? ''
 
-      // Do not leave callback credentials in browser history.
-      window.history.replaceState(null, '', `/app/login?intent=${intent}&kenyan=${isKenyan}`)
       if (!active) return
-      setState({ destination, error: null, ready: true })
-      timer = window.setTimeout(() => window.location.replace(destination), 900)
+
+      if (hasCompletedProfile) {
+        if (requestedIntent === 'signup') {
+          // Account already existed — notify the user then send to Home.
+          setPhase({ status: 'account_exists', name: displayName || googleName })
+          timer = window.setTimeout(() => navigate('/', { replace: true }), 3000)
+        } else {
+          // Normal login — welcome back then send to Home.
+          setPhase({ status: 'welcome_back', name: displayName || googleName })
+          timer = window.setTimeout(() => navigate('/', { replace: true }), 2000)
+        }
+      } else {
+        // New OAuth account — profile incomplete, go to setup page.
+        const setupParams = new URLSearchParams({
+          name: googleName,
+          email,
+          kenyan: String(isKenyan),
+        })
+        navigate(`/profile-setup?${setupParams}`, { replace: true })
+      }
     }
 
-    finishCallback().catch(() => {
+    run().catch(() => {
       if (active) {
-        setState({
-          destination: '',
-          error: 'We could not complete your secure sign-in. Please return to SIVIQ and try again.',
-          ready: true,
+        setPhase({
+          status: 'error',
+          message: 'We could not complete your secure sign-in. Please try again.',
         })
       }
     })
@@ -143,15 +157,58 @@ export function OAuthAppHandoffPage() {
       active = false
       if (timer !== undefined) window.clearTimeout(timer)
     }
-  }, [location.key])
+  }, [location.key, navigate])
 
-  if (state.error) {
-    return <AuthFrame title="Sign-in needs another try" description={state.error}><a className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#0B6E4F] px-5 py-3 font-semibold text-white" href="/login">Return to sign in</a></AuthFrame>
+  if (phase.status === 'error') {
+    return (
+      <AuthFrame title="Sign-in needs another try" description={phase.message}>
+        <a
+          className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#0B6E4F] px-5 py-3 font-semibold text-white"
+          href="/login"
+        >
+          Return to sign in
+        </a>
+      </AuthFrame>
+    )
   }
-  if (!state.ready) {
-    return <AuthFrame title="Completing secure sign-in" description="Please wait while we securely finish your sign-in."><div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#0B6E4F]"><LoaderCircle className="h-5 w-5 animate-spin" />Verifying your account…</div></AuthFrame>
+
+  if (phase.status === 'welcome_back') {
+    return (
+      <AuthFrame
+        title={`Welcome back${phase.name ? `, ${phase.name.split(' ')[0]}` : ''}!`}
+        description="You are signed in. Taking you to your feed…"
+      >
+        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#0B6E4F]">
+          <LoaderCircle className="h-5 w-5 animate-spin" />
+          Redirecting to Home…
+        </div>
+      </AuthFrame>
+    )
   }
-  return <AuthFrame title="You are signed in" description="Opening SIVIQ and taking you to the right place."><a className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#0B6E4F] px-5 py-3 font-semibold text-white" href={state.destination}>Open SIVIQ</a><p className="mt-5 text-center text-sm text-slate-600">If the app does not open, install or update SIVIQ from Google Play, then use the button above.</p></AuthFrame>
+
+  if (phase.status === 'account_exists') {
+    return (
+      <AuthFrame
+        title="Account already exists"
+        description="An account with this email already exists. Redirecting to Home…"
+      >
+        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#0B6E4F]">
+          <LoaderCircle className="h-5 w-5 animate-spin" />
+          Redirecting to Home…
+        </div>
+      </AuthFrame>
+    )
+  }
+
+  // status === 'loading'
+  return (
+    <AuthFrame title="Completing sign-in" description="Please wait while we securely verify your account.">
+      <div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#0B6E4F]">
+        <LoaderCircle className="h-5 w-5 animate-spin" />
+        Verifying…
+      </div>
+    </AuthFrame>
+  )
 }
 
 export function DeleteAccountPage() {
