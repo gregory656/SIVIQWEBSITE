@@ -83,5 +83,5 @@ export const securityHighlights = [
   'Session timeout',
   'Trusted devices',
   'Security activity history',
-  'Secure cloud infrastructure powered by Supabase',
+  'Secure cloud infrastructure with end-to-end data safety',
 ]

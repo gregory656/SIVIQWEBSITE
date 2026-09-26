@@ -1,9 +1,10 @@
-import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { Card } from '../components/ui/Card'
-import { Button } from '../components/ui/Button'
 import { Section } from '../components/ui/Section'
 import { Seo } from '../components/ui/Seo'
 import { site } from '../data/site'
+import { team } from '../data/team'
 
 const socialLinks = [
   {
@@ -56,46 +57,103 @@ const contactItems = [
 ]
 
 export function ContactPage() {
+  const [heroIndex, setHeroIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % team.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const currentLeader = team[heroIndex]
+
   return (
     <>
       <Seo
         title="Contact SIVIQ Africa | We're Real People, Talk to Us"
-        description="Got a question, spotted a bug, or want to talk about what SIVIQ is building? Reach out — we actually read our emails and reply."
+        description="Got a question, spotted a bug, or want to talk about what SIVIQ is building? Reach out. We read our emails and reply."
       />
 
-      {/* Hero banner */}
-      <section className="relative overflow-hidden bg-[#071612] py-20 text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B6E4F]/30 via-transparent to-[#071612]" />
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <span className="mb-3 inline-block rounded-full bg-[#0B6E4F]/20 px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#FFB703]">
-            Let's Talk
-          </span>
-          <h1 className="mt-3 max-w-2xl text-4xl font-black tracking-tight sm:text-6xl">
-            We're people, not a chatbot — reach out.
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">
-            Whether you've hit a snag, want to share an idea, or just want to know what's happening with your county's projects on SIVIQ — drop us a line. We're genuinely happy to hear from you.
-          </p>
+      {/* Hero banner - Auto-advancing background slider of Leadership Team */}
+      <section className="relative overflow-hidden bg-[#071612] py-24 text-white min-h-[360px] flex items-center">
+        {/* Background Leadership Photos Slider */}
+        {team.map((member, index) => (
+          <img
+            key={member.name}
+            src={member.image}
+            alt={member.name}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === heroIndex ? 'opacity-30 scale-105' : 'opacity-0 scale-100'
+              }`}
+            style={{ transition: 'opacity 1s ease-in-out, transform 4s ease-out' }}
+          />
+        ))}
+
+        {/* Dark contrast gradient overlay */}
+        <div className="absolute inset-0 bg-[#071612]/85" />
+
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span className="mb-3 inline-block rounded-full bg-[#0B6E4F] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#FFB703] shadow-sm">
+                Direct Contact
+              </span>
+              <h1 className="mt-2 max-w-2xl text-4xl font-black tracking-tight sm:text-6xl text-white">
+                We're real people, not a bot. Talk to us.
+              </h1>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-white/90 font-medium">
+                Whether you hit a snag, want to share an idea, or want to know what is happening with your county's projects on SIVIQ, drop us a line. We are genuinely happy to hear from you.
+              </p>
+            </div>
+
+            {/* Slide indicator badge showing current leader */}
+            <div className="rounded-2xl border border-white/20 bg-black/60 p-4 backdrop-blur-md max-w-xs shadow-lg">
+              <div className="flex items-center gap-3">
+                <img
+                  key={currentLeader.name}
+                  src={currentLeader.image}
+                  alt={currentLeader.name}
+                  className="h-12 w-12 rounded-xl object-cover ring-2 ring-[#FFB703]"
+                />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#FFB703]">SIVIQ Team</p>
+                  <p className="text-sm font-black text-white">{currentLeader.name}</p>
+                  <p className="text-xs text-white/80">{currentLeader.position}</p>
+                </div>
+              </div>
+              <div className="mt-3 flex gap-1.5 justify-center">
+                {team.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setHeroIndex(idx)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === heroIndex ? 'w-6 bg-[#FFB703]' : 'w-1.5 bg-white/40'
+                      }`}
+                    aria-label={`View leader ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <Section className="bg-white" eyebrow="Contact" title="Here's how to get us">
+      <Section className="bg-white" eyebrow="Contact" title="Here is how to reach us">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
 
           {/* Contact form */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-black text-[#121212]">Send us a message</h2>
-            <p className="mt-2 text-sm leading-6 text-[#6B7280]">
-              Fill this in and we'll get back to you within a day or two — honest. No auto-replies, just us.
+            <p className="mt-2 text-sm leading-6 text-[#4B5563]">
+              Fill this in and we will get back to you within a day or two. Real people, no auto-replies.
             </p>
             <form className="mt-6 grid gap-5">
               {['Name', 'Email', 'Subject'].map((label) => (
                 <div key={label}>
-                  <label className="text-sm font-semibold text-[#121212]" htmlFor={label.toLowerCase()}>
+                  <label className="text-sm font-bold text-[#121212]" htmlFor={label.toLowerCase()}>
                     {label}
                   </label>
                   <input
-                    className="mt-2 min-h-12 w-full rounded-xl border border-[#E5E7EB] bg-[#F7F9F8] px-4 text-[#121212] transition focus:border-[#0B6E4F] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B6E4F]/20"
+                    className="mt-2 min-h-12 w-full rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-4 text-[#121212] font-medium transition focus:border-[#0B6E4F] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B6E4F]/30"
                     id={label.toLowerCase()}
                     name={label.toLowerCase()}
                     required
@@ -104,18 +162,23 @@ export function ContactPage() {
                 </div>
               ))}
               <div>
-                <label className="text-sm font-semibold text-[#121212]" htmlFor="message">
+                <label className="text-sm font-bold text-[#121212]" htmlFor="message">
                   Your Message
                 </label>
                 <textarea
-                  className="mt-2 min-h-36 w-full rounded-xl border border-[#E5E7EB] bg-[#F7F9F8] px-4 py-3 text-[#121212] transition focus:border-[#0B6E4F] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B6E4F]/20"
+                  className="mt-2 min-h-36 w-full rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-4 py-3 text-[#121212] font-medium transition focus:border-[#0B6E4F] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B6E4F]/30"
                   id="message"
                   name="message"
-                  placeholder="Tell us what's on your mind..."
+                  placeholder="Tell us what is on your mind..."
                   required
                 />
               </div>
-              <Button type="submit">Send Message</Button>
+              <button
+                type="submit"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#121212] px-6 py-3 text-sm font-black text-white shadow-sm transition hover:bg-[#FFB703] hover:text-[#121212]"
+              >
+                Send Message
+              </button>
             </form>
           </div>
 
@@ -123,32 +186,32 @@ export function ContactPage() {
             {/* Direct contacts */}
             <Card className="rounded-2xl border border-[#E5E7EB] p-7">
               <h2 className="text-xl font-black text-[#121212]">Direct contacts</h2>
-              <p className="mt-1 text-sm text-[#6B7280]">Emails go to actual humans on the team, not a ticket queue.</p>
+              <p className="mt-1 text-sm text-[#4B5563]">Emails go directly to humans on our team.</p>
               <div className="mt-5 grid gap-3">
                 {contactItems.map(({ icon: Icon, label, value, href }) => (
                   <a
-                    className="group flex items-center gap-4 rounded-xl border border-transparent p-3 transition hover:border-[#0B6E4F]/20 hover:bg-[#edf7f2]"
+                    className="group flex items-center gap-4 rounded-xl border border-[#E5E7EB] p-3 transition hover:border-[#0B6E4F] hover:bg-[#edf7f2]"
                     href={href}
                     key={label}
                     rel="noreferrer"
                     target={label === 'WhatsApp' ? '_blank' : undefined}
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B6E4F]/10 text-[#0B6E4F] transition group-hover:bg-[#0B6E4F] group-hover:text-white">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B6E4F] text-white transition group-hover:scale-105">
                       <Icon aria-hidden size={18} />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#6B7280]">{label}</p>
-                      <p className="text-sm font-medium text-[#121212]">{value}</p>
+                      <p className="text-xs font-black uppercase tracking-wider text-[#0B6E4F]">{label}</p>
+                      <p className="text-sm font-bold text-[#121212]">{value}</p>
                     </div>
                   </a>
                 ))}
-                <div className="flex items-center gap-4 rounded-xl p-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B6E4F]/10 text-[#0B6E4F]">
+                <div className="flex items-center gap-4 rounded-xl border border-[#E5E7EB] p-3 bg-[#F8FAFC]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#6B7280] text-white">
                     <MapPin aria-hidden size={18} />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#6B7280]">Office</p>
-                    <p className="text-sm text-[#9CA3AF]">Address will be added when confirmed</p>
+                    <p className="text-xs font-black uppercase tracking-wider text-[#4B5563]">Office</p>
+                    <p className="text-sm font-medium text-[#374151]">Address to be confirmed</p>
                   </div>
                 </div>
               </div>
@@ -157,39 +220,40 @@ export function ContactPage() {
             {/* Social links */}
             <Card className="rounded-2xl border border-[#E5E7EB] p-7">
               <h2 className="text-xl font-black text-[#121212]">Find us on social</h2>
-              <p className="mt-1 text-sm text-[#6B7280]">We share updates, behind-the-scenes stuff, and respond to questions on social too.</p>
+              <p className="mt-1 text-sm text-[#4B5563]">We share updates, project news, and reply on social too.</p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {socialLinks.map(({ label, href, icon, color }) => (
                   <a
-                    className="group flex items-center gap-3 rounded-xl border border-[#E5E7EB] p-3 text-sm font-semibold text-[#374151] transition hover:border-[#0B6E4F]/30 hover:shadow-sm"
+                    className="group flex items-center gap-3 rounded-xl border border-[#E5E7EB] bg-white p-3 text-sm font-bold text-[#121212] transition hover:border-[#121212] hover:bg-[#121212] hover:text-white"
                     href={href}
                     key={label}
                     rel="noreferrer"
                     target="_blank"
-                    style={{ '--brand': color } as React.CSSProperties}
                   >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ backgroundColor: `${color}15`, color }}>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition group-hover:scale-110" style={{ backgroundColor: `${color}15`, color }}>
                       {icon}
                     </span>
-                    {label}
+                    <span>{label}</span>
                   </a>
                 ))}
               </div>
             </Card>
 
-            {/* WhatsApp channel CTA */}
-            <div className="rounded-2xl bg-gradient-to-br from-[#25D366] to-[#128C7E] p-6 text-white">
+            {/* WhatsApp channel CTA - Solid emerald green with black button that turns orange on hover */}
+            <div className="rounded-2xl bg-[#0B6E4F] p-6 text-white shadow-sm">
               <div className="flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366] text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </div>
                 <div>
-                  <p className="font-black">Join our WhatsApp Channel</p>
-                  <p className="text-sm text-white/80">Stay in the loop with SIVIQ updates</p>
+                  <p className="font-black text-[#FFB703]">Join our WhatsApp Channel</p>
+                  <p className="text-sm font-medium text-white/90">Stay updated on civic projects</p>
                 </div>
               </div>
               <a
-                className="mt-4 block rounded-xl bg-white px-5 py-3 text-center text-sm font-bold text-[#128C7E] transition hover:bg-white/90"
+                className="mt-4 block rounded-xl bg-[#121212] px-5 py-3.5 text-center text-sm font-black text-white transition hover:bg-[#FFB703] hover:text-[#121212] shadow-sm"
                 href={site.whatsappChannel}
                 rel="noreferrer"
                 target="_blank"

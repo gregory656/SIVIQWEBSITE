@@ -39,7 +39,7 @@ const dataNotCollected = [
 const sections = [
   ['Why data is collected', 'SIVIQ uses data to operate accounts, personalize local civic content, reduce abuse, secure accounts, provide messaging, support moderation, process appeals, recover accounts, and improve civic project reporting.'],
   ['Data sharing', 'SIVIQ does not sell personal data. Data may be shared with service providers only as needed to operate secure cloud infrastructure, comply with law, prevent abuse, or respond to user requests.'],
-  ['Security practices', 'SIVIQ uses account authentication, PIN and biometric app lock, session timeout controls, trusted devices, security activity logs, and secure cloud infrastructure powered by Supabase.'],
+  ['Security practices', 'SIVIQ uses account authentication, PIN and biometric app lock, session timeout controls, trusted devices, security activity logs, and encrypted cloud infrastructure.'],
   ['User controls', 'Users can manage profile visibility, notification preferences, security settings, active sessions, trusted devices, data export, and account deletion through the app.'],
   ['Account deletion', 'Users can request deletion inside the app. Deletion uses a recovery period before permanent purge to protect against mistakes and disputes.'],
   ['Data export', 'Users can request export of available account data from Settings.'],

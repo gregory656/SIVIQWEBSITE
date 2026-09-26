@@ -16,8 +16,8 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-40 border-b transition-all duration-300 ${scrolled
-          ? 'border-[#E5E7EB] bg-white/95 shadow-sm backdrop-blur-md'
-          : 'border-transparent bg-white'
+        ? 'border-[#E5E7EB] bg-white/95 shadow-sm backdrop-blur-md'
+        : 'border-transparent bg-white'
         }`}
     >
       <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -32,7 +32,6 @@ export function Header() {
               src={site.logo}
               alt="SIVIQ Africa logo"
             />
-            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-[#FFB703] ring-2 ring-white" />
           </div>
           <div>
             <span className="block text-sm font-black leading-none tracking-tight">SIVIQ Africa</span>
