@@ -75,53 +75,52 @@ export function ContactPage() {
         description="Got a question, spotted a bug, or want to talk about what SIVIQ is building? Reach out. We read our emails and reply."
       />
 
-      {/* Hero banner - Auto-advancing background slider of Leadership Team */}
-      <section className="relative overflow-hidden bg-[#071612] py-24 text-white min-h-[360px] flex items-center">
-        {/* Background Leadership Photos Slider */}
+      {/* Hero banner - Crisp background slider without green tint */}
+      <section className="relative overflow-hidden bg-[#121212] py-24 text-white min-h-[380px] flex items-center">
+        {/* Background Leadership Photos Slider - Real Crisp Photos */}
         {team.map((member, index) => (
           <img
             key={member.name}
             src={member.image}
             alt={member.name}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === heroIndex ? 'opacity-30 scale-105' : 'opacity-0 scale-100'
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ${index === heroIndex ? 'opacity-65 scale-100' : 'opacity-0 scale-95'
               }`}
-            style={{ transition: 'opacity 1s ease-in-out, transform 4s ease-out' }}
           />
         ))}
 
-        {/* Dark contrast gradient overlay */}
-        <div className="absolute inset-0 bg-[#071612]/85" />
+        {/* Crisp dark overlay to keep text legible without green tint/blur */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/75" />
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="max-w-2xl">
               <span className="mb-3 inline-block rounded-full bg-[#0B6E4F] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#FFB703] shadow-sm">
                 Direct Contact
               </span>
-              <h1 className="mt-2 max-w-2xl text-4xl font-black tracking-tight sm:text-6xl text-white">
+              <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-6xl text-white">
                 We're real people, not a bot. Talk to us.
               </h1>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-white/90 font-medium">
+              <p className="mt-4 text-lg leading-8 text-white/95 font-medium">
                 Whether you hit a snag, want to share an idea, or want to know what is happening with your county's projects on SIVIQ, drop us a line. We are genuinely happy to hear from you.
               </p>
             </div>
 
             {/* Slide indicator badge showing current leader */}
-            <div className="rounded-2xl border border-white/20 bg-black/60 p-4 backdrop-blur-md max-w-xs shadow-lg">
-              <div className="flex items-center gap-3">
+            <div className="rounded-2xl border border-white/30 bg-black/80 p-4.5 backdrop-blur-md max-w-xs shadow-xl">
+              <div className="flex items-center gap-3.5">
                 <img
                   key={currentLeader.name}
                   src={currentLeader.image}
                   alt={currentLeader.name}
-                  className="h-12 w-12 rounded-xl object-cover ring-2 ring-[#FFB703]"
+                  className="h-14 w-14 rounded-xl object-cover ring-2 ring-[#FFB703]"
                 />
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#FFB703]">SIVIQ Team</p>
+                  <p className="text-xs font-black uppercase tracking-wider text-[#FFB703]">SIVIQ Team</p>
                   <p className="text-sm font-black text-white">{currentLeader.name}</p>
                   <p className="text-xs text-white/80">{currentLeader.position}</p>
                 </div>
               </div>
-              <div className="mt-3 flex gap-1.5 justify-center">
+              <div className="mt-3.5 flex gap-1.5 justify-center">
                 {team.map((_, idx) => (
                   <button
                     key={idx}
