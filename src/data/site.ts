@@ -11,31 +11,32 @@ export const site = {
     admin: 'adminsiviq@gmail.com',
   },
   whatsapp: '+254719637416',
+  whatsappChannel: 'https://whatsapp.com/channel/0029Vb6CxnBHQbRztW74fY46',
   downloadLinks: {
     android: 'https://play.google.com/store/apps/details?id=com.siviq.africa',
     ios: '',
   },
   socials: {
-    facebook: '#',
-    instagram: '#',
-    twitter: '#',
-    linkedin: '#',
+    facebook: 'https://www.facebook.com/nexagentechnologies',
+    instagram: 'https://www.instagram.com/gregory._steve',
+    twitter: 'https://x.com/stevegreg656',
+    linkedin: 'https://www.linkedin.com/in/gregory._steve',
   },
   images: {
     hero:
-      'https://images.pexels.com/photos/35340754/pexels-photo-35340754.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      'https://images.pexels.com/photos/36964425/pexels-photo-36964425.jpeg?auto=compress&cs=tinysrgb&w=1800',
     community:
-      'https://images.pexels.com/photos/18221181/pexels-photo-18221181.jpeg?auto=compress&cs=tinysrgb&w=1400',
+      'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1400',
     nairobi:
-      'https://images.pexels.com/photos/35238178/pexels-photo-35238178.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/27628473/pexels-photo-27628473.jpeg?auto=compress&cs=tinysrgb&w=1600',
     socialFeed:
-      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=900',
+      'https://images.pexels.com/photos/6140369/pexels-photo-6140369.jpeg?auto=compress&cs=tinysrgb&w=900',
     projects:
-      'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=900',
+      'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=900',
     messaging:
-      'https://images.pexels.com/photos/3182811/pexels-photo-3182811.jpeg?auto=compress&cs=tinysrgb&w=900',
+      'https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=900',
     security:
-      'https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=900',
+      'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=900',
   },
 }
 

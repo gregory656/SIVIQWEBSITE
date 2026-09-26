@@ -8,7 +8,7 @@ export type Feature = {
 export const features: Feature[] = [
   {
     title: 'Social Feed',
-    description: 'I want citizens to discover local posts, photos, comments, replies, shares, and profile activity without the app feeling like political noise.',
+    description: 'Citizens to discover local posts, photos, comments, replies, shares, and profile activity .',
     imageKey: 'socialFeed',
     kicker: 'Community layer',
   },
@@ -20,7 +20,7 @@ export const features: Feature[] = [
   },
   {
     title: 'Stalled Project Reporting',
-    description: 'When a project is stranded or stalled, SIVIQ should help people document it clearly instead of leaving the issue scattered in casual talk.',
+    description: 'When a project is stranded or stalled, helpS people document it clearly instead of leaving the issue scattered in casual talk.',
     imageKey: 'projects',
     kicker: 'Follow-up layer',
   },
