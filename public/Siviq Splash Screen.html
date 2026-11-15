@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Siviq Splash</title>
+<style>
+:root{--bg:#0a0e14;--fg:#fff;--cy:#00ffe8;--pk:#ff5aa0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eafffc;--fg:#06242a}}
+:root[data-theme="light"]{--bg:#eafffc;--fg:#06242a}
+html,body{height:100%;margin:0;overflow:hidden}
+body{background:var(--bg);color:var(--fg);font-family:"Baloo 2","Trebuchet MS",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;position:relative}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:0;animation:fadeIn 1.6s 1.4s forwards}
+.b1{width:60vmin;height:60vmin;background:var(--cy);left:-15vmin;top:-10vmin;animation:fadeIn 1.6s 1.4s forwards,drift 9s 1.4s ease-in-out infinite alternate}
+.b2{width:55vmin;height:55vmin;background:var(--pk);right:-15vmin;bottom:-10vmin;animation:fadeIn 1.6s 1.6s forwards,drift 11s 1.6s ease-in-out infinite alternate-reverse}
+@keyframes fadeIn{to{opacity:.35}}
+@keyframes drift{to{transform:translate(8vmin,6vmin) scale(1.15)}}
+.stage{position:relative;display:flex;flex-direction:column;align-items:center;gap:3vmin;z-index:2}
+.ring{position:absolute;left:50%;top:0;width:44vmin;height:44vmin;margin:-2vmin 0 0 -22vmin;border-radius:50%;border:3px solid var(--cy);opacity:0;transform:scale(.4)}
+.ring.go{animation:ring 1.4s ease-out forwards}
+@keyframes ring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(2.4)}}
+svg{width:40vmin;height:40vmin;overflow:visible;filter:drop-shadow(0 2vmin 5vmin rgba(0,255,232,.35))}
+.icon{transform-origin:627px 1254px;transform:translateY(-1800px);animation:drop .9s cubic-bezier(.3,0,.4,1) .2s forwards,squash .6s ease-out 1.1s}
+@keyframes drop{to{transform:translateY(0)}}
+@keyframes squash{0%{transform:scale(1.18,.78)}40%{transform:scale(.94,1.08)}70%{transform:scale(1.03,.97)}100%{transform:scale(1)}}
+.pop{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:pop .5s cubic-bezier(.3,1.8,.5,1) forwards}
+.eyeG{animation-delay:1.3s}.pupG{animation-delay:1.5s}.browG{animation-delay:1.45s}
+@keyframes pop{to{transform:scale(1)}}
+.draw{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw .7s ease-out 1.6s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.wink{transform-box:fill-box;transform-origin:center;opacity:0;animation:winkIn .4s 1.7s forwards,winkLoop 4s 3.4s infinite}
+@keyframes winkIn{from{opacity:0;transform:scale(.2) rotate(-40deg)}to{opacity:1;transform:scale(1)}}
+@keyframes winkLoop{0%,85%,100%{transform:scale(1)}92%{transform:scale(1.1,.7)}}
+.mouth{transform-box:fill-box;transform-origin:center top;transform:scaleX(0);animation:mouth .45s cubic-bezier(.3,1.5,.5,1) 1.9s forwards}
+@keyframes mouth{to{transform:scaleX(1)}}
+.tongue{transform-box:fill-box;transform-origin:center top;transform:scaleY(0);animation:tongue .6s cubic-bezier(.3,1.7,.5,1) 2.3s forwards,wag 2.2s 3s ease-in-out infinite}
+@keyframes tongue{to{transform:scaleY(1)}}
+@keyframes wag{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg) scaleY(1.05)}75%{transform:rotate(5deg) scaleY(1.05)}}
+.pupil{animation:look 4s 3s ease-in-out infinite}
+@keyframes look{0%,100%{transform:translate(0,0)}30%,50%{transform:translate(-20px,10px)}70%{transform:translate(14px,-8px)}}
+.word{display:flex;font-weight:800;font-size:15vmin;line-height:1;letter-spacing:.01em}
+.word span{display:inline-block;opacity:0;transform:translateY(8vmin) scale(.4) rotate(-14deg);animation:letter .6s cubic-bezier(.3,1.7,.5,1) forwards}
+.word span:nth-child(1){animation-delay:2.7s}.word span:nth-child(2){animation-delay:2.78s}.word span:nth-child(3){animation-delay:2.86s}.word span:nth-child(4){animation-delay:2.94s}.word span:nth-child(5){animation-delay:3.02s}
+.word span:nth-child(1){color:var(--cy)}.word span:nth-child(5){color:var(--pk)}
+@keyframes letter{to{opacity:1;transform:none}}
+.tag{font-size:3.6vmin;opacity:0;letter-spacing:.3em;text-transform:uppercase;animation:tag .8s 3.5s forwards}
+@keyframes tag{to{opacity:.65}}
+.dots{display:flex;gap:2vmin;margin-top:4vmin;opacity:0;animation:tag .4s 3.7s forwards}
+.dots i{width:2vmin;height:2vmin;border-radius:50%;background:var(--cy);animation:hop 1s ease-in-out infinite}
+.dots i:nth-child(2){background:var(--pk);animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-2.4vmin)}}
+.spark{position:absolute;left:50%;top:18vmin;width:1.6vmin;height:1.6vmin;border-radius:50%;opacity:0;pointer-events:none;z-index:1}
+.spark.go{animation:burst 1.3s cubic-bezier(.1,.7,.3,1) forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.2) rotate(var(--r))}}
+button{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));font:inherit;font-size:14px;padding:8px 18px;border-radius:999px;border:1px solid currentColor;background:transparent;color:var(--fg);opacity:.5;cursor:pointer;z-index:5}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="stage" id="stage">
+<div class="ring" id="r1"></div><div class="ring" id="r2"></div>
+<svg viewBox="0 0 1254 1254" role="img" aria-label="Siviq logo">
+<defs><clipPath id="sq"><rect width="1254" height="1254" rx="300"/></clipPath></defs>
+<g class="icon">
+<rect width="1254" height="1254" rx="300" fill="#00ffe8"/>
+<g clip-path="url(#sq)">
+<g class="pop browG"><path d="M240 355C250 320 330 262 400 262c40 0 75 13 85 28 2 7-5 10-15 8-90-6-170 22-220 62-7 3-12 0-10-5z" fill="#000"/></g>
+<g class="pop eyeG"><circle cx="415" cy="472" r="142" fill="#fff"/></g>
+<g class="pop pupG"><g class="pupil">
+<ellipse cx="445" cy="490" rx="108" ry="135" fill="#000"/>
+<ellipse cx="470" cy="415" rx="40" ry="33" transform="rotate(35 470 415)" fill="#fff"/>
+<circle cx="514" cy="481" r="15" fill="#fff"/>
+<circle cx="389" cy="531" r="20" fill="#22c8ff"/></g></g>
+<path d="M300 620C340 565 440 545 535 568L620 650H300z" fill="#00ffe8"/>
+<path class="wink" d="M705 515C740 430 840 330 935 325c40-2 65 8 68 18 1 7-8 9-18 9-65 10-115 43-152 76 87-13 177 7 215 62 4 15-3 25-18 23-50-13-90-28-150-23-60 5-120 25-160 40-10 0-17-7-15-15z" fill="#000"/>
+<path class="mouth" d="M345 700c0-25 15-32 40-28 175 48 335 48 495 0 35-7 48 13 48 38-18 110-98 190-158 220H515C420 890 360 800 345 700z" fill="#000"/>
+<g class="tongue">
+<path d="M492 810c0-35 28-45 68-42h160c50-3 72 25 70 62-5 70-60 195-150 195S505 920 492 810z" fill="#ff5aa0"/>
+<path d="M595 770c10 30 15 135 55 135s48-95 60-135z" fill="#f0407f"/>
+<ellipse cx="755" cy="830" rx="14" ry="42" transform="rotate(-8 755 830)" fill="#ffc0dc"/>
+</g></g></g>
+</svg>
+<div class="word" aria-label="Siviq"><span>S</span><span>i</span><span>v</span><span>i</span><span>q</span></div>
+<div class="tag">Be playful</div>
+<div class="dots"><i></i><i></i><i></i></div>
+</div>
+<button id="re">Replay</button>
+<script>
+const stage=document.getElementById('stage');
+const cols=['#00ffe8','#ff5aa0','#ffd84d','#ffffff','#22c8ff'];
+function sparks(){
+  document.querySelectorAll('.spark').forEach(e=>e.remove());
+  for(let i=0;i<36;i++){
+    const s=document.createElement('div');s.className='spark';
+    const a=Math.random()*Math.PI*2,d=22+Math.random()*30;
+    s.style.setProperty('--x',Math.cos(a)*d+'vmin');
+    s.style.setProperty('--y',Math.sin(a)*d+'vmin');
+    s.style.setProperty('--r',(Math.random()*720-360)+'deg');
+    s.style.background=cols[i%cols.length];
+    if(i%3==0)s.style.borderRadius='2px';
+    s.style.marginLeft='-.8vmin';s.style.top='30vmin';
+    stage.appendChild(s);
+    setTimeout(()=>s.classList.add('go'),2900+Math.random()*150);
+  }
+}
+function rings(){
+  ['r1','r2'].forEach((id,i)=>{const r=document.getElementById(id);r.classList.remove('go');void r.offsetWidth;setTimeout(()=>r.classList.add('go'),1150+i*250)});
+}
+function play(){sparks();rings()}
+document.getElementById('re').onclick=()=>location.reload();
+play();
+</script>
+</body>
+</html>

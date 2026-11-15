@@ -2,12 +2,19 @@
 
 :root {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #121212;
-  background: #f7f9f8;
+  color: #0b1220;
+  background: #f6f9fc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* SIVIQ 2.0 brand palette */
+  --siviq-blue: #2563eb;
+  --siviq-cyan: #06b6d4;
+  --siviq-teal: #0d9488;
+  --siviq-ink: #0b1220;
+  --siviq-mist: #f6f9fc;
 }
 
 * {
@@ -49,74 +56,26 @@ textarea {
   border-radius: 0.75rem;
   background: #fff;
   padding: 0.7rem 0.85rem;
-  color: #121212;
+  color: #0b1220;
 }
 
 .field:focus {
-  border-color: #0b6e4f;
-  outline: 2px solid rgba(11, 110, 79, 0.25);
+  border-color: #0d9488;
+  outline: 2px solid rgba(13, 148, 136, 0.25);
 }
 
 :focus-visible {
-  outline: 3px solid #ffb703;
+  outline: 3px solid #22d3ee;
   outline-offset: 3px;
 }
 
-/* ===== HERO ANIMATIONS ===== */
+/* ===== ENTRANCE ANIMATIONS ===== */
 .rise-in {
   animation: rise-in 720ms ease-out both;
 }
 
-/* ===== SCROLL BOARD (hero card) ===== */
-.scroll-board {
-  animation: board-sway 7s ease-in-out infinite;
-  background: #fbf0dc;
-  border: 2px solid #b98f5d;
-  box-shadow:
-    0 24px 55px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-}
-
-.scroll-board::before,
-.scroll-board::after {
-  content: "";
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  height: 14px;
-  border-radius: 999px;
-  background: #d2a163;
-  box-shadow: inset 0 2px 8px rgba(75, 41, 14, 0.35);
-}
-
-.scroll-board::before {
-  top: -7px;
-}
-
-.scroll-board::after {
-  bottom: -7px;
-}
-
-.pin {
-  position: absolute;
-  top: -17px;
-  z-index: 20;
-  height: 34px;
-  width: 34px;
-  border-radius: 999px;
-  background: #0b6e4f;
-  border: 5px solid #f7f9f8;
-  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.28);
-  animation: pin-pulse 2.8s ease-in-out infinite;
-}
-
-.pin-left {
-  left: 24%;
-}
-
-.pin-right {
-  right: 24%;
-  animation-delay: 480ms;
+.fade-up {
+  animation: fade-up 700ms ease-out both;
 }
 
 /* ===== TIMELINE STEPS ===== */
@@ -140,11 +99,6 @@ textarea {
   animation-delay: 360ms;
 }
 
-/* ===== FEATURE ANIMATIONS ===== */
-.fade-up {
-  animation: fade-up 700ms ease-out both;
-}
-
 /* ===== STAT COUNTER ===== */
 .stat-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -152,7 +106,7 @@ textarea {
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(11, 110, 79, 0.15);
+  box-shadow: 0 12px 32px rgba(13, 148, 136, 0.15);
 }
 
 /* ===== WHATSAPP FLOATER ===== */
@@ -164,7 +118,7 @@ textarea {
   display: flex;
   align-items: center;
   gap: 0;
-  background: #25D366;
+  background: #25d366;
   color: white;
   border-radius: 999px;
   padding: 14px 14px;
@@ -225,9 +179,258 @@ textarea {
 }
 
 .section-chip:hover {
-  background: #0B6E4F;
+  background: #0d9488;
   color: white;
   transform: translateX(4px);
+}
+
+/* ===== SIVIQ SPLASH SCREEN ===== */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(60vmax 60vmax at 15% 10%, rgba(6, 182, 212, 0.35), transparent 60%),
+    radial-gradient(55vmax 55vmax at 85% 85%, rgba(37, 99, 235, 0.35), transparent 60%),
+    linear-gradient(160deg, #0b1220 0%, #0f1b33 55%, #062a33 100%);
+  cursor: pointer;
+}
+
+.splash-screen.leaving {
+  animation: splash-out 480ms ease-in forwards;
+}
+
+.splash-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5vmin;
+}
+
+.splash-icon {
+  width: min(38vmin, 180px);
+  height: auto;
+  overflow: visible;
+  transform: translateY(-160%);
+  animation: splash-drop 0.8s cubic-bezier(0.3, 0, 0.4, 1) 0.15s forwards,
+    splash-squash 0.55s ease-out 1s;
+  filter: drop-shadow(0 18px 40px rgba(6, 182, 212, 0.45));
+}
+
+.splash-word {
+  display: flex;
+  font-weight: 900;
+  font-size: clamp(2rem, 9vmin, 4.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.splash-word span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(2.5rem) scale(0.4) rotate(-14deg);
+  animation: splash-letter 0.55s cubic-bezier(0.3, 1.7, 0.5, 1) forwards;
+}
+
+.splash-word span:nth-child(1) { animation-delay: 1.5s; color: #22d3ee; }
+.splash-word span:nth-child(2) { animation-delay: 1.57s; color: #ffffff; }
+.splash-word span:nth-child(3) { animation-delay: 1.64s; color: #22d3ee; }
+.splash-word span:nth-child(4) { animation-delay: 1.71s; color: #22d3ee; }
+.splash-word span:nth-child(5) { animation-delay: 1.78s; color: #38bdf8; }
+
+.splash-tag {
+  font-size: clamp(0.7rem, 2.6vmin, 1rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 0;
+  animation: splash-tag 0.7s ease-out 2.1s forwards;
+}
+
+.splash-dots {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: splash-tag 0.4s ease-out 2.25s forwards;
+}
+
+.splash-dots i {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: #22d3ee;
+  animation: splash-hop 1s ease-in-out infinite;
+}
+
+.splash-dots i:nth-child(2) {
+  background: #38bdf8;
+  animation-delay: 0.15s;
+}
+
+.splash-dots i:nth-child(3) {
+  background: #0d9488;
+  animation-delay: 0.3s;
+}
+
+.splash-hint {
+  position: absolute;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  animation: splash-tag 0.6s ease-out 2.4s forwards;
+}
+
+@keyframes splash-drop {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-squash {
+  0% {
+    transform: scale(1.15, 0.8);
+  }
+  45% {
+    transform: scale(0.95, 1.06);
+  }
+  75% {
+    transform: scale(1.02, 0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes splash-letter {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes splash-tag {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splash-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translateY(-0.8rem);
+    opacity: 1;
+  }
+}
+
+@keyframes logo-idle {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.04); }
+}
+
+@keyframes splash-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ===== SIVIQ ANIMATED LOGO (winking mark) ===== */
+.svq-all {
+  transform-box: view-box;
+  transform-origin: 627px 1254px;
+  animation: svq-bounce 3s ease-in-out infinite;
+}
+
+.svq-tongue {
+  transform-box: view-box;
+  transform-origin: 640px 768px;
+  animation: svq-wag 3s ease-in-out infinite;
+}
+
+.svq-eye {
+  transform-box: view-box;
+  transform-origin: 420px 470px;
+  animation: svq-blink 3s infinite;
+}
+
+.svq-pupil {
+  animation: svq-look 3s ease-in-out infinite;
+}
+
+.svq-brow {
+  transform-box: view-box;
+  transform-origin: 360px 320px;
+  animation: svq-brow 3s ease-in-out infinite;
+}
+
+.svq-wink {
+  transform-box: view-box;
+  transform-origin: 875px 440px;
+  animation: svq-wink 3s ease-in-out infinite;
+}
+
+.svq-mouth {
+  transform-box: view-box;
+  transform-origin: 640px 700px;
+  animation: svq-smile 3s ease-in-out infinite;
+}
+
+@keyframes svq-bounce {
+  0%, 100% { transform: scale(1, 1); }
+  10% { transform: scale(1.05, 0.93); }
+  22% { transform: scale(0.97, 1.05) translateY(-30px); }
+  34% { transform: scale(1.04, 0.95); }
+  44%, 90% { transform: scale(1, 1); }
+}
+
+@keyframes svq-wag {
+  0%, 30% { transform: rotate(0) scaleY(1); }
+  40% { transform: rotate(-5deg) scaleY(1.06); }
+  50% { transform: rotate(5deg) scaleY(1.1); }
+  60% { transform: rotate(-4deg) scaleY(1.05); }
+  70%, 100% { transform: rotate(0) scaleY(1); }
+}
+
+@keyframes svq-blink {
+  0%, 60%, 68%, 100% { transform: scaleY(1); }
+  64% { transform: scaleY(0.08); }
+}
+
+@keyframes svq-look {
+  0%, 30% { transform: translate(0, 0); }
+  42%, 52% { transform: translate(-18px, 8px); }
+  62%, 100% { transform: translate(0, 0); }
+}
+
+@keyframes svq-brow {
+  0%, 25%, 60%, 100% { transform: translateY(0) rotate(0); }
+  35%, 50% { transform: translateY(-22px) rotate(-4deg); }
+}
+
+@keyframes svq-wink {
+  0%, 15%, 100% { transform: scale(1) rotate(0); }
+  25%, 45% { transform: scale(1.08, 0.8) rotate(-3deg); }
+}
+
+@keyframes svq-smile {
+  0%, 15%, 100% { transform: scale(1); }
+  30%, 50% { transform: scale(1.04, 1.06); }
+}
+
+/* subtle idle motion for the header logo so it never looks static */
+.logo-idle {
+  animation: logo-idle 4s ease-in-out infinite;
 }
 
 /* ===== KEYFRAMES ===== */
@@ -240,30 +443,6 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes board-sway {
-
-  0%,
-  100% {
-    transform: rotate(-0.4deg) translateY(0);
-  }
-
-  50% {
-    transform: rotate(0.35deg) translateY(-6px);
-  }
-}
-
-@keyframes pin-pulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.08);
   }
 }
 

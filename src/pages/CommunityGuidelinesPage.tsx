@@ -5,7 +5,7 @@ import { guidelineSections } from '../data/legal'
 export function CommunityGuidelinesPage() {
   return (
     <>
-      <Seo title="Community Guidelines | SIVIQ Africa" description="SIVIQ Africa Community Guidelines for responsible civic reporting and discussion." />
+      <Seo title="Community Guidelines | SIVIQ" description="SIVIQ Community Guidelines for responsible marketplace activity and discussion." />
       <LegalDocument heading="Community Guidelines" sections={guidelineSections} />
     </>
   )

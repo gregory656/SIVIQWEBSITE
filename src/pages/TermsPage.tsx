@@ -5,7 +5,7 @@ import { termsSections } from '../data/legal'
 export function TermsPage() {
   return (
     <>
-      <Seo title="Terms of Service | SIVIQ Africa" description="SIVIQ Africa Terms of Service for user content, rankings, moderation, appeals, and account controls." />
+      <Seo title="Terms of Service | SIVIQ" description="SIVIQ Terms of Service for marketplace transactions, orders, reviews, moderation, appeals, wallet, and account controls." />
       <LegalDocument heading="Terms of Service" sections={termsSections} />
     </>
   )

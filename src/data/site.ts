@@ -1,19 +1,19 @@
 export const site = {
-  name: 'SIVIQ Africa',
+  name: 'SIVIQ',
   productName: 'SIVIQ',
-  tagline: 'Building better community together',
+  tagline: 'Your Campus. Your Market. Your Network.',
   domain: 'https://siviq.top',
-  logo: '/civic.png',
-  ogImage: '/civic.png',
+  logo: '/siviq-icon.png',
+  ogImage: '/siviq-icon.png',
   emails: {
-    support: 'support@siviq.africa',
-    info: 'info@siviq.africa',
+    support: 'support@siviq.top',
+    info: 'info@siviq.top',
     admin: 'adminsiviq@gmail.com',
   },
   whatsapp: '+254719637416',
   whatsappChannel: 'https://whatsapp.com/channel/0029Vb6CxnBHQbRztW74fY46',
   downloadLinks: {
-    android: 'https://play.google.com/store/apps/details?id=com.siviq.africa',
+    android: 'https://play.google.com/store/apps/details?id=com.siviq.marketplace',
     ios: '',
   },
   socials: {
@@ -25,15 +25,13 @@ export const site = {
   images: {
     hero:
       'https://images.pexels.com/photos/36964425/pexels-photo-36964425.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    community:
+    campus:
       'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    nairobi:
+    market:
       'https://images.pexels.com/photos/27628473/pexels-photo-27628473.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    socialFeed:
+    services:
       'https://images.pexels.com/photos/6140369/pexels-photo-6140369.jpeg?auto=compress&cs=tinysrgb&w=900',
-    projects:
-      'https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=900',
-    messaging:
+    chat:
       'https://images.pexels.com/photos/4126743/pexels-photo-4126743.jpeg?auto=compress&cs=tinysrgb&w=900',
     security:
       'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=900',

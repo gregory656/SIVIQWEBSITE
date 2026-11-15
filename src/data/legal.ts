@@ -6,109 +6,109 @@ export type LegalSection = {
 export const privacySections: LegalSection[] = [
   {
     title: 'Data We Collect',
-    body: 'SIVIQ collects account details such as email, display name, username, SIVIQ code, county, sub-county, profile image URL, and app activity needed to operate SIVIQ features.',
+    body: 'SIVIQ collects account details such as email, display name, username, profile image, campus or location preferences, skills and interests, and app activity needed to operate marketplace features such as listings, requests, messages, orders, reviews, notifications, and safety tooling.',
   },
   {
     title: 'Why We Collect It',
-    body: 'We use this information to verify accounts, reduce abuse, personalize local SIVIQ content, secure your account, and support moderation, appeals, and recovery.',
+    body: 'We use this information to operate accounts, match buyers with providers, personalize your feed, process orders and payments, reduce fraud and abuse, secure accounts, support moderation and disputes, and comply with legal obligations.',
   },
   {
     title: 'Location And Identity',
-    body: 'County and sub-county selections are used for local relevance. Full email addresses are not shown publicly. Public profile identity can show your display name, username, and SIVIQ code.',
+    body: 'Campus, county, and service-area selections are used for local relevance and matching. Full email addresses are not shown publicly. Public profile identity can show your display name, username, portfolio, ratings, and verification badges.',
+  },
+  {
+    title: 'Verification Data',
+    body: 'Identity and seller verification may require documents or information processed with restricted access. Verification badges clearly communicate what has actually been verified.',
+  },
+  {
+    title: 'Financial Data',
+    body: 'Payment and wallet activity is processed through secure, authorized payment partners. SIVIQ maintains an auditable ledger of credits, payments, earnings, fees, and refunds. We do not store full card or mobile-money PIN details.',
   },
   {
     title: 'Your Choices',
-    body: 'You can request data export or account deletion from Settings. Deletion may use a recovery period before permanent purge to protect against mistakes and disputes.',
+    body: 'You can manage profile visibility, location privacy, notification preferences, and security settings in the app, and request data export or account deletion. Deletion may use a recovery period before permanent purge to protect against mistakes and disputes.',
   },
   {
     title: 'Kenya Data Protection',
-    body: 'SIVIQ is designed to follow the Kenya Data Protection Act 2019, including purpose limitation, access control, and user data rights.',
+    body: 'SIVIQ is designed to follow the Kenya Data Protection Act 2019 and guidance from the Office of the Data Protection Commissioner, including purpose limitation, access control, consent, and user data rights.',
   },
   {
     title: 'Additional Data Safety Details',
-    body: 'SIVIQ may process uploaded project images, social post images, notification preferences, security logs, trusted device records, active session records, legal acceptance records, moderation reports, comments, messages, follows, project votes, age group, selected interests, in-app search terms, and ad impressions/clicks where monetization features are active.\n\nSIVIQ does not intentionally collect contacts, SMS history, installed apps, constant precise GPS, microphone recordings, call logs, or browsing history outside SIVIQ.',
+    body: 'SIVIQ may process listing and product images, messages and media shared in chats, order and quotation records, reviews, reports, moderation cases, security logs, session records, legal acceptance records, age group, selected interests, in-app search terms, and advertising impressions where promoted listings are active.\n\nSIVIQ does not intentionally collect contacts, SMS history, installed apps, constant precise GPS tracking, microphone recordings, call logs, or browsing history outside SIVIQ.',
   },
 ]
 
 export const termsSections: LegalSection[] = [
   {
+    title: 'Marketplace Transactions',
+    body: 'SIVIQ connects buyers and sellers but is not a party to every transaction unless a service is explicitly offered by SIVIQ. Buyers and sellers are responsible for agreeing on scope, price, delivery, and completion before work begins.',
+  },
+  {
     title: 'User-Generated Content',
-    body: 'Posts, ratings, comments, and reports are created by users. SIVIQ does not guarantee that user submissions are true, complete, or official.',
+    body: 'Posts, listings, reviews, comments, and messages are created by users. SIVIQ does not guarantee that user submissions are true, complete, or official, and listings must describe products and services honestly.',
   },
   {
     title: 'No Government Affiliation',
-    body: 'SIVIQ is not affiliated with, endorsed by, or approved by the Government of Kenya, county governments, elected officials, or public agencies.',
+    body: 'SIVIQ is an independent commercial platform and is not affiliated with, endorsed by, or approved by the Government of Kenya, county governments, universities, or public agencies.',
   },
   {
-    title: 'Accuracy',
-    body: 'Users are responsible for posting truthful information. Posts without evidence such as photos, location, or sources may be marked unverified or given lower ranking weight.',
+    title: 'Listings And Requests',
+    body: 'Service offers, product listings, and buyer requests must be lawful, accurately described, and include relevant images, condition disclosures, pricing, and availability where applicable. Misleading listings may be removed.',
   },
   {
-    title: 'Liability',
-    body: 'You are responsible for your posts and comments. SIVIQ may remove reported content that violates these terms or community guidelines.',
+    title: 'Orders And Payments',
+    body: 'Order workflows may include quotations, negotiation, payment confirmation, delivery or completion, buyer confirmation, and reviews. Payment processing is handled through authorized partners; SIVIQ fees and refunds follow the published fee schedule.',
   },
   {
-    title: 'Right of Reply',
-    body: 'Public leaders and authorized representatives may request verification and respond to ratings or project reports through the app process.',
+    title: 'Reviews And Reputation',
+    body: 'Reviews are only available after eligible completed transactions. Rankings and reputation scores reflect legitimate marketplace activity and are designed to resist fake reviews and paid manipulation.',
   },
   {
-    title: 'Account Registration',
-    body: 'Users may create SIVIQ accounts using email and password authentication. You are responsible for keeping your credentials secure and for activity that occurs through your account.',
-  },
-  {
-    title: 'Legal Acceptance During Signup',
-    body: 'Signup requires accepting the Terms of Service, Privacy Policy, and Community Guidelines. SIVIQ may record acceptance details in legal_acceptance_logs for compliance and audit purposes.',
-  },
-  {
-    title: 'User-Generated Content License',
-    body: 'By submitting posts, comments, project reports, images, votes, messages, profile content, or other material, you grant SIVIQ a limited license to host, display, process, moderate, and distribute that content only as needed to operate the platform and related safety features.',
-  },
-  {
-    title: 'Project Reporting and Evidence Requirements',
-    body: 'Project reports should include truthful descriptions, relevant county or sub-county context, project status, location details where appropriate, and evidence such as images or sources. Reports may be labeled ongoing, completed, stalled, or excellent.',
-  },
-  {
-    title: 'Messaging and Group Chats',
-    body: 'Direct messages and group chats are provided for civic discussion and community coordination. Harassment, threats, fraud, spam, and unlawful conduct are prohibited.',
+    title: 'Messaging And Communication',
+    body: 'Direct messages, group chats, and hiring conversations are provided for marketplace coordination. Harassment, threats, fraud, spam, off-platform scam solicitation, and unlawful conduct are prohibited.',
   },
   {
     title: 'Profile Visibility',
-    body: 'Public profiles may show display name, username, SIVIQ code, bio, county or sub-county, follower information, verification badge, and public activity depending on privacy settings.',
+    body: 'Public profiles may show display name, username, portfolio, skills, ratings, verification badges, and activity depending on your privacy settings.',
   },
   {
-    title: 'Rankings Disclaimer',
-    body: 'SIVIQ rankings are community sentiment and accountability analytics. They are not official government truth, official election data, legal findings, or formal performance certification.',
-  },
-  {
-    title: 'Moderation Actions',
-    body: 'SIVIQ may hide, label, limit, remove, or escalate content that appears to violate these terms, the Community Guidelines, applicable law, or platform safety standards.',
-  },
-  {
-    title: 'Account Suspension and Bans',
-    body: 'Accounts may be restricted, suspended, or banned for repeated abuse, coordinated manipulation, fake projects, impersonation, fraud, serious harassment, or other harmful conduct.',
-  },
-  {
-    title: 'Appeals',
-    body: 'Users may use the app appeals process to challenge moderation actions. Appeals are reviewed based on available evidence, platform rules, and safety needs.',
-  },
-  {
-    title: 'Data Export and Deletion',
-    body: 'Users can request data export or account deletion through app settings. Deletion may include a recovery period before permanent purge and may be limited where retention is needed for disputes, legal compliance, abuse prevention, or security.',
+    title: 'Verification Badges',
+    body: 'Verification is progressive. Badges indicate the specific checks completed, such as email, phone, identity, seller, or campus affiliation. A badge is not a guarantee of future conduct.',
   },
   {
     title: 'Prohibited Conduct',
-    body: 'Do not post fake projects, fake images, spam, fraud, pornography, hate speech, incitement to violence, betting content, coordinated ranking manipulation, defamatory claims without evidence, or content that violates the rights of others.',
+    body: 'Do not list counterfeit or stolen goods, post fraudulent services, solicit payments off-platform to evade safeguards, impersonate others, post prohibited content, coordinate fake reviews, or engage in any conduct that violates the rights of others.',
   },
   {
-    title: 'No Paid Ranking Influence',
-    body: 'SIVIQ does not permit paid manipulation of rankings, votes, reports, badges, or civic sentiment analytics. Sponsored content, if introduced, must not buy ranking outcomes.',
+    title: 'Siviq Credits And Wallet',
+    body: 'Siviq Credits may be used for eligible platform actions under configurable limits. Credits are a platform utility and are not cash. Financial features operate under applicable Kenyan regulatory requirements and authorized payment arrangements.',
   },
   {
-    title: 'Limitation of Liability',
-    body: 'SIVIQ is provided for civic participation and information sharing. To the fullest extent permitted by law, SIVIQ is not liable for user submissions, unofficial claims, service interruptions, moderation decisions made in good faith, or reliance on community-generated content.',
+    title: 'Disputes',
+    body: 'If a transaction is disputed, SIVIQ may facilitate evidence review through the Safety Centre and dispute process. Outcomes may include order cancellation, partial refunds, or other remedies where supported.',
   },
   {
-    title: 'Changes to Terms',
+    title: 'Moderation Actions',
+    body: 'SIVIQ may hide, label, limit, remove, or escalate content that appears to violate these terms, the Community Guidelines, applicable law, or platform safety standards. Automated systems assist moderation but significant enforcement decisions include human review and appeals.',
+  },
+  {
+    title: 'Account Suspension And Bans',
+    body: 'Accounts may be restricted, suspended, or banned for repeated abuse, fraud, fake listings, impersonation, coordinated manipulation, serious harassment, or other harmful conduct.',
+  },
+  {
+    title: 'Appeals',
+    body: 'Users may use the in-app appeals process to challenge moderation actions. Appeals are reviewed based on available evidence, platform rules, and safety needs.',
+  },
+  {
+    title: 'Data Export And Deletion',
+    body: 'Users can request data export or account deletion through app settings. Deletion may include a recovery period before permanent purge and may be limited where retention is needed for disputes, legal compliance, payment records, or abuse prevention.',
+  },
+  {
+    title: 'Limitation Of Liability',
+    body: 'SIVIQ is provided as a marketplace and community platform. To the fullest extent permitted by law, SIVIQ is not liable for user transactions, listing accuracy, third-party conduct, service interruptions, or moderation decisions made in good faith.',
+  },
+  {
+    title: 'Changes To Terms',
     body: 'SIVIQ may update these terms from time to time. Material updates may be shown in the app or on the website, and continued use after changes means you accept the updated terms.',
   },
   {
@@ -120,22 +120,26 @@ export const termsSections: LegalSection[] = [
 export const guidelineSections: LegalSection[] = [
   {
     title: 'What Is Allowed',
-    body: 'Post real SIVIQ projects, photos, ratings, comments, and local observations. Keep discussion factual, local, and respectful.',
+    body: 'Offer real services and products, post honest listings with clear photos and prices, respond to buyer requests, share your portfolio, and review completed transactions fairly. Keep discussion respectful and local.',
   },
   {
     title: 'What Is Not Allowed',
-    body: 'Fake projects, fake photos, spam, fraud, pornography, hate speech, incitement to violence, betting content, and coordinated rating manipulation are not allowed.',
+    body: 'Counterfeit or stolen goods, fake listings, fake reviews, spam, fraud, off-platform payment scams, pornography, hate speech, incitement to violence, impersonation, and coordinated manipulation are not allowed.',
   },
   {
-    title: 'Defamation And Proof',
-    body: 'Do not make serious accusations without evidence. Claims about corruption, theft, or criminal conduct should include a source, location, or supporting material.',
+    title: 'Honest Listings',
+    body: 'Describe condition, defects, scope, and price truthfully. For second-hand goods, disclose wear and tear. For services, state deliverables and timelines clearly.',
+  },
+  {
+    title: 'Safe Transactions',
+    body: 'Use Siviq messaging and order tools for marketplace coordination. Be cautious of requests to pay or share credentials outside the platform. Report suspicious activity — reporting is always free.',
   },
   {
     title: 'Enforcement',
-    body: 'Reported posts may be hidden, reviewed, removed, or escalated. Repeated false or abusive activity can lead to account restrictions or bans.',
+    body: 'Reported listings, messages, and profiles may be hidden, reviewed, removed, or escalated. Repeated false or abusive activity can lead to verification loss, restrictions, or account bans.',
   },
   {
     title: 'Your Responsibility',
-    body: 'You are responsible for what you post. If you are unsure whether something is true, do not publish it as fact.',
+    body: 'You are responsible for what you list, sell, buy, and say. If you are unsure whether something is lawful or honest, do not publish it.',
   },
 ]

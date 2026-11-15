@@ -7,19 +7,19 @@ const steps = ['Open the SIVIQ app.', 'Go to Profile.', 'Open Danger Zone.', 'Ch
 export function AccountDeletionPage() {
   return (
     <>
-      <Seo title="Account Deletion | SIVIQ Africa" description="Instructions for SIVIQ users to request account deletion from inside the app or through manual support." />
+      <Seo title="Account Deletion | SIVIQ" description="Instructions for SIVIQ users to request account deletion from inside the app or through manual support." />
       <Section className="bg-white" eyebrow="Play Store support" title="Account Deletion">
         <Card>
           <p className="text-lg font-semibold text-[#121212]">SIVIQ users can request account deletion from inside the app.</p>
           <ol className="mt-6 grid gap-3 text-[#374151]">
             {steps.map((step, index) => (
               <li className="flex gap-3" key={step}>
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0B6E4F] text-sm font-bold text-white">{index + 1}</span>
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0D9488] text-sm font-bold text-white">{index + 1}</span>
                 <span>{step}</span>
               </li>
             ))}
           </ol>
-          <p className="mt-6 rounded-lg bg-[#edf7f2] p-4 text-[#374151]">
+          <p className="mt-6 rounded-lg bg-[#ECFEFF] p-4 text-[#374151]">
             If you cannot access your account, email adminsiviq@gmail.com with your username, account email, and deletion request.
           </p>
           <div className="mt-6 grid gap-3 text-[#374151]">

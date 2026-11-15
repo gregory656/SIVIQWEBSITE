@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { SplashScreen } from '../SplashScreen'
 import { site } from '../../data/site'
 
 function WhatsAppFloater() {
@@ -22,7 +23,8 @@ function WhatsAppFloater() {
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#F7F9F8]">
+    <div className="min-h-screen bg-[#F5F9FC]">
+      <SplashScreen />
       <Header />
       <main>{children}</main>
       <Footer />

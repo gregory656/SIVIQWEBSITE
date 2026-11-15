@@ -6,51 +6,60 @@ import { site } from '../data/site'
 const safetyStandards = [
   'Zero tolerance for child sexual abuse and exploitation (CSAE) content',
   'Mandatory user verification and age-appropriate access controls',
-  'Real-time content moderation with automated detection systems',
-  'Human review team for escalated content and safety reports',
-  'Immediate reporting to relevant authorities when required by law',
-  'Regular safety audits and compliance monitoring',
-  'User education on safe online practices and reporting tools',
-  'Secure data handling with encryption and access controls',
+  'Progressive verification: email, phone, identity, seller, and campus affiliation',
+  'Automated content intelligence for spam, scams, and prohibited content',
+  'Human review for escalated reports and high-impact enforcement decisions',
+  'Documented evidence and a formal appeals process for enforcement actions',
+  'Secure file uploads, rate limiting, and abuse detection',
+  'Regular safety audits, moderation training, and compliance monitoring',
   'Transparent safety policy documentation and updates',
   'Collaboration with child safety organizations and industry best practices',
 ]
 
+const safetyCentreFeatures = [
+  'Report users, listings, messages, and suspected scams — always free',
+  'Block and report directly inside conversations and listings',
+  'Appeals process for moderation decisions, with human review',
+  'Dispute assistance for order and transaction conflicts',
+  'Safety education and anti-scam guidance in the app',
+  'Escalation to authorities when required by law',
+]
+
 const reportingMechanisms = [
-  'In-app report button for all posts, messages, and user profiles',
+  'In-app report button for listings, posts, messages, and profiles',
+  'Siviq Safety Centre for scam, fraud, and dispute reports',
   'Dedicated safety email channel for urgent reports',
-  'Automated flagging of suspicious content patterns',
-  '24/7 moderation team for high-priority safety concerns',
-  'Anonymous reporting option for user protection',
-  'Follow-up communication on report status when appropriate',
+  'Siviq Intelligence flagging of suspicious patterns and scam indicators',
+  'Follow-up communication on report status where appropriate',
 ]
 
 const preventionMeasures = [
-  'Age verification during account registration',
-  'Content filtering before publication',
-  'Behavioral analysis to detect predatory patterns',
-  'Restricted features for new accounts until verification',
-  'Community guidelines with clear safety expectations',
-  'Regular safety training for moderation team',
+  'Progressive verification before elevated privileges',
+  'Content and listing screening before publication',
+  'Behavioral analysis to detect fraud and account abuse',
+  'Configurable credit limits on new conversations and promotions',
+  'Clear community guidelines and marketplace safety rules',
+  'No permanent bans issued by automated systems alone',
 ]
 
 const sections = [
-  ['Child Safety Commitment', 'SIVIQ is committed to protecting children and young people from sexual abuse and exploitation. We maintain strict safety standards, employ advanced detection systems, and work with law enforcement when necessary to prevent CSAE on our platform.'],
-  ['Safety Standards URL', 'Our externally published safety standards against child sexual abuse and exploitation (CSAE) are available at: https://siviq.africa/safety-standards'],
+  ['Child Safety Commitment', 'SIVIQ is committed to protecting children and young people from sexual abuse and exploitation. We maintain strict safety standards, employ detection systems, and work with law enforcement when necessary to prevent CSAE on our platform.'],
+  ['Safety Standards URL', 'Our externally published safety standards against child sexual abuse and exploitation (CSAE) are available at: https://siviq.top/safety-standards'],
+  ['The Siviq Safety Centre', 'Every user can report suspicious activity, block others, appeal moderation decisions, and get help with transaction disputes. Safety features are always free — monetization never gates access to protection.'],
+  ['Marketplace Safety', 'Siviq promotes safe trading: verified reviews only from completed transactions, progressive seller verification, explainable recommendations, and human-reviewed enforcement for serious cases.'],
   ['Contact Information', `For safety-related concerns, reports, or inquiries, contact us at ${site.emails.admin} or ${site.emails.support}. For urgent matters, WhatsApp: ${site.whatsapp}.`],
-  ['Google Play Compliance', 'All apps within social or dating categories must provide published safety standards and contact information to comply with our child safety standards policy. SIVIQ meets these requirements through comprehensive safety documentation and accessible reporting channels.'],
-  ['Data Protection', 'Safety-related data is handled with the highest security standards, following Kenya Data Protection Act 2019 and international best practices for child safety data.'],
-  ['Transparency', 'We publish regular transparency reports on safety actions, content removals, and policy enforcement to maintain accountability with our community.'],
+  ['Google Play Compliance', 'SIVIQ provides published safety standards and contact information to comply with child safety standards policy and marketplace trust requirements.'],
+  ['Data Protection', 'Safety-related data is handled with the highest security standards, following Kenya Data Protection Act 2019 and international best practices for user safety data.'],
 ]
 
 export function SafetyStandardsPage() {
   return (
     <>
-      <Seo title="Safety Standards | SIVIQ Africa" description="SIVIQ Africa safety standards for child protection, CSAE prevention, reporting mechanisms, and Google Play compliance." />
+      <Seo title="Safety Standards | SIVIQ" description="SIVIQ safety standards: child protection, CSAE prevention, the Siviq Safety Centre, marketplace trust, and reporting mechanisms." />
       <Section className="bg-white" eyebrow="Child Safety & Protection" title="Safety Standards">
         <div className="grid gap-5 lg:grid-cols-2">
           <Card>
-            <h2 className="text-2xl font-bold text-[#121212]">Our Safety Standards</h2>
+            <h2 className="text-2xl font-bold text-[#0B1220]">Our Safety Standards</h2>
             <ul className="mt-4 grid gap-2 text-sm leading-6 text-[#374151]">
               {safetyStandards.map((item) => (
                 <li key={item}>{item}</li>
@@ -58,17 +67,25 @@ export function SafetyStandardsPage() {
             </ul>
           </Card>
           <Card>
-            <h2 className="text-2xl font-bold text-[#121212]">Reporting Mechanisms</h2>
+            <h2 className="text-2xl font-bold text-[#0B1220]">The Siviq Safety Centre</h2>
+            <ul className="mt-4 grid gap-2 text-sm leading-6 text-[#374151]">
+              {safetyCentreFeatures.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+        <div className="mt-5 grid gap-5 lg:grid-cols-2">
+          <Card>
+            <h2 className="text-2xl font-bold text-[#0B1220]">Reporting Mechanisms</h2>
             <ul className="mt-4 grid gap-2 text-sm leading-6 text-[#374151]">
               {reportingMechanisms.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </Card>
-        </div>
-        <div className="mt-5">
           <Card>
-            <h2 className="text-2xl font-bold text-[#121212]">Prevention Measures</h2>
+            <h2 className="text-2xl font-bold text-[#0B1220]">Prevention Measures</h2>
             <ul className="mt-4 grid gap-2 text-sm leading-6 text-[#374151]">
               {preventionMeasures.map((item) => (
                 <li key={item}>{item}</li>
@@ -79,7 +96,7 @@ export function SafetyStandardsPage() {
         <div className="mt-5 grid gap-5">
           {sections.map(([title, body]) => (
             <Card key={title}>
-              <h2 className="text-xl font-bold text-[#121212]">{title}</h2>
+              <h2 className="text-xl font-bold text-[#0B1220]">{title}</h2>
               <p className="mt-3 leading-7 text-[#374151]">{body}</p>
             </Card>
           ))}

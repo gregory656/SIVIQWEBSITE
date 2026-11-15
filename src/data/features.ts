@@ -1,87 +1,74 @@
 export type Feature = {
   title: string
   description: string
-  imageKey: 'socialFeed' | 'projects' | 'messaging' | 'security'
+  imageKey: 'services' | 'campus' | 'chat' | 'security' | 'market'
   kicker: string
 }
 
 export const features: Feature[] = [
   {
-    title: 'Social Feed',
-    description: 'Citizens to discover local posts, photos, comments, replies, shares, and profile activity .',
-    imageKey: 'socialFeed',
-    kicker: 'Community layer',
+    title: 'Social Commerce Feed',
+    description: 'A personalized feed blending community posts, buyer requests, seller listings, and trending services — where social connections turn into real economic opportunities.',
+    imageKey: 'services',
+    kicker: 'Home layer',
   },
   {
-    title: 'Project Tracking',
-    description: 'Projects will carry county, sub-county, location, status, description, evidence images, approvals, disputes, comments, and reports.',
-    imageKey: 'projects',
-    kicker: 'Evidence layer',
+    title: 'Service Marketplace',
+    description: 'Offer and discover services across personal care, home services, technology, education, fashion, digital services, and delivery — from hairdressers to web developers.',
+    imageKey: 'campus',
+    kicker: 'Marketplace layer',
   },
   {
-    title: 'Stalled Project Reporting',
-    description: 'When a project is stranded or stalled, helpS people document it clearly instead of leaving the issue scattered in casual talk.',
-    imageKey: 'projects',
-    kicker: 'Follow-up layer',
+    title: 'Buyer Requests',
+    description: 'Post what you need with your budget, location, and timing. Providers respond with structured offers instead of scattered chat messages.',
+    imageKey: 'market',
+    kicker: 'Demand layer',
   },
   {
-    title: 'Completed Project Showcase',
-    description: 'Completed and excellent projects also deserve visibility, because accountability should include proof of delivery, not only complaints.',
-    imageKey: 'projects',
-    kicker: 'Delivery layer',
+    title: 'Siviq Match',
+    description: 'Intelligent matching connects buyers with providers using skills, location, budget, availability, reviews, and reliability — not just popularity.',
+    imageKey: 'services',
+    kicker: 'Discovery layer',
   },
   {
-    title: 'Rankings System',
-    description: 'Rankings are community SIVIQ sentiment analytics with weekly snapshots. They are not official government truth or election results.',
-    imageKey: 'socialFeed',
-    kicker: 'Sentiment layer',
+    title: 'Secure Messaging',
+    description: 'Direct chats, group conversations, hiring discussions, and order-related messaging with listing and order references built in.',
+    imageKey: 'chat',
+    kicker: 'Communication layer',
   },
   {
-    title: 'Private Messaging',
-    description: 'Direct messaging will help users follow up with each other through search, unread states, favorites, archives, and delivery indicators.',
-    imageKey: 'messaging',
-    kicker: 'Conversation layer',
-  },
-  {
-    title: 'Group Chats',
-    description: 'Group chats are for responsible local coordination around civic issues, public projects, and community follow-up.',
-    imageKey: 'messaging',
-    kicker: 'Coordination layer',
-  },
-  {
-    title: 'Secure Authentication',
-    description: 'The app uses email and password access, records legal acceptance during signup, and supports active sessions and trusted devices.',
+    title: 'Siviq Wallet',
+    description: 'Platform credits, earnings tracking, and a transparent financial ledger — designed for compliant, auditable transactions.',
     imageKey: 'security',
-    kicker: 'Account layer',
+    kicker: 'Payments layer',
   },
   {
-    title: 'PIN and Biometric App Lock',
-    description: 'Users can protect the app with a 4-digit PIN, biometric unlock, PIN fallback, password reauthentication, and session timeout.',
-    imageKey: 'security',
-    kicker: 'Device layer',
+    title: 'Trust & Reputation',
+    description: 'Progressive verification, verified reviews from completed transactions, seller rankings, and badges that show exactly what was verified.',
+    imageKey: 'campus',
+    kicker: 'Trust layer',
   },
   {
-    title: 'Moderation and Appeals',
-    description: 'Moderation includes reports, reviews, enforcement actions, appeals, and clear platform roles: user, moderator, admin, and super_admin.',
+    title: 'Siviq Safety Centre',
+    description: 'Report scams, block users, appeal decisions, and get dispute help. Safety features are always free — monetization never gates protection.',
     imageKey: 'security',
     kicker: 'Safety layer',
   },
 ]
 
 export const appSections = [
-  'Home community discussion layer',
-  'Projects civic evidence layer',
-  'Rankings civic intelligence layer',
-  'Chats direct and group messaging',
-  'Profile public identity and controls',
+  'Home personalized social & marketplace feed',
+  'Explore categories, search & nearby providers',
+  'Create posts, services, products & requests',
+  'Chats direct, group & hiring conversations',
+  'Profile identity, portfolio, wallet & settings',
 ]
 
 export const securityHighlights = [
-  'Secure account access',
-  'Biometric login',
-  'PIN app lock',
-  'Session timeout',
-  'Trusted devices',
-  'Security activity history',
-  'Secure cloud infrastructure with end-to-end data safety',
+  'Secure authentication with two-factor support',
+  'Progressive identity & seller verification',
+  'Verified reviews from completed transactions only',
+  'Server-side payment verification and audit logs',
+  'Siviq Safety Centre with reporting and appeals',
+  'Privacy controls, data export and account deletion',
 ]

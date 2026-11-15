@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Siviq Animated Logo</title>
+<style>
+:root{--bg:#f4f6f8;--fg:#1a1d21;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101316;--fg:#eef1f4}}
+:root[data-theme="dark"]{--bg:#101316;--fg:#eef1f4}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+svg{width:min(70vw,360px);height:auto;cursor:pointer;overflow:visible}
+button{font:inherit;padding:10px 20px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+p{margin:0;opacity:.6;font-size:14px}
+.all{transform-origin:627px 1254px;animation:bounce 3s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:scale(1,1)}10%{transform:scale(1.05,.93)}22%{transform:scale(.97,1.05) translateY(-30px)}34%{transform:scale(1.04,.95)}44%,90%{transform:scale(1,1)}}
+.tongue{transform-origin:640px 768px;animation:wag 3s ease-in-out infinite}
+@keyframes wag{0%,30%{transform:rotate(0) scaleY(1)}40%{transform:rotate(-5deg) scaleY(1.06)}50%{transform:rotate(5deg) scaleY(1.1)}60%{transform:rotate(-4deg) scaleY(1.05)}70%,100%{transform:rotate(0) scaleY(1)}}
+.eye{transform-origin:420px 470px;animation:blink 3s infinite}
+@keyframes blink{0%,60%,68%,100%{transform:scaleY(1)}64%{transform:scaleY(.08)}}
+.pupil{animation:look 3s ease-in-out infinite}
+@keyframes look{0%,30%{transform:translate(0,0)}42%,52%{transform:translate(-18px,8px)}62%,100%{transform:translate(0,0)}}
+.brow{transform-origin:360px 320px;animation:brow 3s ease-in-out infinite}
+@keyframes brow{0%,25%,60%,100%{transform:translateY(0) rotate(0)}35%,50%{transform:translateY(-22px) rotate(-4deg)}}
+.wink{transform-origin:875px 440px;animation:wink 3s ease-in-out infinite}
+@keyframes wink{0%,15%,100%{transform:scale(1) rotate(0)}25%,45%{transform:scale(1.08,.8) rotate(-3deg)}}
+.mouth{transform-origin:640px 700px;animation:smile 3s ease-in-out infinite}
+@keyframes smile{0%,15%,100%{transform:scale(1)}30%,50%{transform:scale(1.04,1.06)}}
+.paused *{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){.all,.tongue,.eye,.pupil,.brow,.wink,.mouth{animation:none}}
+</style>
+</head>
+<body>
+<svg id="logo" viewBox="0 0 1254 1254" role="img" aria-label="Winking smiley logo with tongue out">
+<defs><clipPath id="sq"><rect width="1254" height="1254" rx="300"/></clipPath></defs>
+<g class="all">
+<rect width="1254" height="1254" rx="300" fill="#00ffe8"/>
+<g clip-path="url(#sq)">
+<path class="brow" d="M240 355C250 320 330 262 400 262c40 0 75 13 85 28 2 7-5 10-15 8-90-6-170 22-220 62-7 3-12 0-10-5z" fill="#000"/>
+<g class="eye">
+<circle cx="415" cy="472" r="142" fill="#fff"/>
+<g class="pupil">
+<ellipse cx="445" cy="490" rx="108" ry="135" fill="#000"/>
+<ellipse cx="470" cy="415" rx="40" ry="33" transform="rotate(35 470 415)" fill="#fff"/>
+<circle cx="514" cy="481" r="15" fill="#fff"/>
+<circle cx="389" cy="531" r="20" fill="#22c8ff"/>
+</g>
+<path d="M300 620C340 565 440 545 535 568L620 650H300z" fill="#00ffe8"/>
+</g>
+<path class="wink" d="M705 515C740 430 840 330 935 325c40-2 65 8 68 18 1 7-8 9-18 9-65 10-115 43-152 76 87-13 177 7 215 62 4 15-3 25-18 23-50-13-90-28-150-23-60 5-120 25-160 40-10 0-17-7-15-15z" fill="#000"/>
+<g class="mouth">
+<path d="M345 700c0-25 15-32 40-28 175 48 335 48 495 0 35-7 48 13 48 38-18 110-98 190-158 220H515C420 890 360 800 345 700z" fill="#000"/>
+<g class="tongue">
+<path d="M492 810c0-35 28-45 68-42h160c50-3 72 25 70 62-5 70-60 195-150 195S505 920 492 810z" fill="#ff5aa0"/>
+<path d="M595 770c10 30 15 135 55 135s48-95 60-135z" fill="#f0407f"/>
+<ellipse cx="755" cy="830" rx="14" ry="42" transform="rotate(-8 755 830)" fill="#ffc0dc"/>
+</g>
+</g>
+</g>
+</g>
+</svg>
+<button id="t">Pause</button>
+<p>Tap the logo to restart the loop</p>
+<script>
+const s=document.getElementById('logo'),b=document.getElementById('t');
+b.onclick=()=>{const p=s.classList.toggle('paused');b.textContent=p?'Play':'Pause'};
+s.onclick=()=>{const g=s.querySelectorAll('*');s.style.display='none';void s.offsetWidth;s.style.display='';};
+</script>
+</body>
+</html>
