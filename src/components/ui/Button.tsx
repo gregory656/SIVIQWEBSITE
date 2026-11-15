@@ -10,9 +10,9 @@ type ButtonProps = {
 }
 
 const styles = {
-  primary: 'bg-[#0B6E4F] text-white hover:bg-[#095f45]',
-  secondary: 'border border-[#0B6E4F] bg-white text-[#0B6E4F] hover:bg-[#edf7f2]',
-  ghost: 'bg-transparent text-[#0B6E4F] hover:bg-[#edf7f2]',
+  primary: 'bg-[#0D9488] text-white hover:bg-[#0F766E]',
+  secondary: 'border border-[#0D9488] bg-white text-[#0D9488] hover:bg-[#ECFEFF]',
+  ghost: 'bg-transparent text-[#0D9488] hover:bg-[#ECFEFF]',
 }
 
 export function Button({ children, href, disabled, variant = 'primary', type = 'button' }: ButtonProps) {

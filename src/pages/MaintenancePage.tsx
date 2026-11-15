@@ -7,17 +7,17 @@ import { Seo } from '../components/ui/Seo'
 export function MaintenancePage() {
   return (
     <>
-      <Seo title="Maintenance | SIVIQ Africa" description="SIVIQ Africa scheduled maintenance notice." />
+      <Seo title="Maintenance | SIVIQ" description="SIVIQ scheduled maintenance notice." />
       <Section className="bg-white" eyebrow="System status" title="SIVIQ is currently undergoing scheduled maintenance.">
         <Card className="mx-auto max-w-2xl text-center">
-          <Activity aria-hidden className="mx-auto text-[#0B6E4F]" size={40} />
+          <Activity aria-hidden className="mx-auto text-[#0D9488]" size={40} />
           <p className="mt-4 text-lg text-[#374151]">We are working to improve your experience. Please check back shortly.</p>
-          <div className="mt-6 rounded-lg border border-dashed border-[#9CA3AF] bg-[#F7F9F8] p-5">
+          <div className="mt-6 rounded-lg border border-dashed border-[#9CA3AF] bg-[#F5F9FC] p-5">
             <p className="text-sm font-semibold text-[#6B7280]">Countdown will be connected during a maintenance window</p>
             <p className="mt-2 text-2xl font-black text-[#121212]">To be connected</p>
           </div>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#edf7f2] px-4 py-2 text-sm font-bold text-[#0B6E4F]">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FFB703]" />
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#ECFEFF] px-4 py-2 text-sm font-bold text-[#0D9488]">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#22D3EE]" />
             Maintenance active
           </div>
           <div className="mt-7">

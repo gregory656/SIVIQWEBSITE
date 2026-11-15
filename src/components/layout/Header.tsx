@@ -28,13 +28,13 @@ export function Header() {
         >
           <div className="relative">
             <img
-              className="h-10 w-10 rounded-xl object-cover ring-2 ring-transparent transition group-hover:ring-[#0B6E4F]/40"
+              className="logo-idle h-10 w-10 rounded-xl object-cover ring-2 ring-transparent transition group-hover:ring-[#0D9488]/40"
               src={site.logo}
-              alt="SIVIQ Africa logo"
+              alt="SIVIQ logo"
             />
           </div>
           <div>
-            <span className="block text-sm font-black leading-none tracking-tight">SIVIQ Africa</span>
+            <span className="block text-sm font-black leading-none tracking-tight">SIVIQ</span>
             <span className="block text-[10px] font-medium text-[#6B7280]">{site.tagline}</span>
           </div>
         </Link>
@@ -44,8 +44,8 @@ export function Header() {
             <NavLink
               className={({ isActive }) =>
                 `rounded-lg px-3 py-2 text-sm font-semibold transition ${isActive
-                  ? 'bg-[#edf7f2] text-[#0B6E4F]'
-                  : 'text-[#374151] hover:bg-[#F7F9F8] hover:text-[#0B6E4F]'
+                  ? 'bg-[#ECFEFF] text-[#0D9488]'
+                  : 'text-[#374151] hover:bg-[#F5F9FC] hover:text-[#0D9488]'
                 }`
               }
               key={item.href}
@@ -55,7 +55,7 @@ export function Header() {
             </NavLink>
           ))}
           <a
-            className="ml-2 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-[#0B6E4F] px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-[#0B6E4F]/20 transition hover:bg-[#095f45] hover:-translate-y-px"
+            className="ml-2 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-[#0D9488] px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-[#0D9488]/20 transition hover:bg-[#0F766E] hover:-translate-y-px"
             href={site.downloadLinks.android}
             rel="noreferrer"
             target="_blank"
@@ -68,7 +68,7 @@ export function Header() {
           aria-controls="mobile-navigation"
           aria-expanded={open}
           aria-label="Toggle navigation menu"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#E5E7EB] text-[#121212] transition hover:bg-[#F7F9F8] lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#E5E7EB] text-[#121212] transition hover:bg-[#F5F9FC] lg:hidden"
           onClick={() => setOpen((v) => !v)}
           type="button"
         >
@@ -82,7 +82,7 @@ export function Header() {
             {navigation.map((item) => (
               <NavLink
                 className={({ isActive }) =>
-                  `rounded-xl px-4 py-3 text-sm font-semibold transition ${isActive ? 'bg-[#edf7f2] text-[#0B6E4F]' : 'text-[#374151] hover:bg-[#F7F9F8] hover:text-[#0B6E4F]'
+                  `rounded-xl px-4 py-3 text-sm font-semibold transition ${isActive ? 'bg-[#ECFEFF] text-[#0D9488]' : 'text-[#374151] hover:bg-[#F5F9FC] hover:text-[#0D9488]'
                   }`
                 }
                 key={item.href}
@@ -93,7 +93,7 @@ export function Header() {
               </NavLink>
             ))}
             <a
-              className="mt-1 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#0B6E4F] px-5 py-2.5 text-center text-sm font-bold text-white shadow-sm"
+              className="mt-1 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#0D9488] px-5 py-2.5 text-center text-sm font-bold text-white shadow-sm"
               href={site.downloadLinks.android}
               rel="noreferrer"
               target="_blank"

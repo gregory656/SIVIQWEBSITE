@@ -71,8 +71,8 @@ export function ContactPage() {
   return (
     <>
       <Seo
-        title="Contact SIVIQ Africa | We're Real People, Talk to Us"
-        description="Got a question, spotted a bug, or want to talk about what SIVIQ is building? Reach out. We read our emails and reply."
+        title="Contact SIVIQ | We're Real People, Talk to Us"
+        description="Got a question, spotted a bug, want to sell on SIVIQ, or talk to the founder? Reach out. We read our emails and reply."
       />
 
       {/* Hero banner - Crisp background slider without green tint */}
@@ -94,14 +94,14 @@ export function ContactPage() {
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="max-w-2xl">
-              <span className="mb-3 inline-block rounded-full bg-[#0B6E4F] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#FFB703] shadow-sm">
+              <span className="mb-3 inline-block rounded-full bg-[#0D9488] px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#22D3EE] shadow-sm">
                 Direct Contact
               </span>
               <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-6xl text-white">
                 We're real people, not a bot. Talk to us.
               </h1>
               <p className="mt-4 text-lg leading-8 text-white/95 font-medium">
-                Whether you hit a snag, want to share an idea, or want to know what is happening with your county's projects on SIVIQ, drop us a line. We are genuinely happy to hear from you.
+                Whether you hit a snag, want to list your services, or want to know what is happening on SIVIQ, drop us a line. We are genuinely happy to hear from you.
               </p>
             </div>
 
@@ -112,10 +112,10 @@ export function ContactPage() {
                   key={currentLeader.name}
                   src={currentLeader.image}
                   alt={currentLeader.name}
-                  className="h-14 w-14 rounded-xl object-cover ring-2 ring-[#FFB703]"
+                  className="h-14 w-14 rounded-xl object-cover ring-2 ring-[#22D3EE]"
                 />
                 <div>
-                  <p className="text-xs font-black uppercase tracking-wider text-[#FFB703]">SIVIQ Team</p>
+                  <p className="text-xs font-black uppercase tracking-wider text-[#22D3EE]">SIVIQ Team</p>
                   <p className="text-sm font-black text-white">{currentLeader.name}</p>
                   <p className="text-xs text-white/80">{currentLeader.position}</p>
                 </div>
@@ -125,7 +125,7 @@ export function ContactPage() {
                   <button
                     key={idx}
                     onClick={() => setHeroIndex(idx)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === heroIndex ? 'w-6 bg-[#FFB703]' : 'w-1.5 bg-white/40'
+                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === heroIndex ? 'w-6 bg-[#22D3EE]' : 'w-1.5 bg-white/40'
                       }`}
                     aria-label={`View leader ${idx + 1}`}
                   />
@@ -152,7 +152,7 @@ export function ContactPage() {
                     {label}
                   </label>
                   <input
-                    className="mt-2 min-h-12 w-full rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-4 text-[#121212] font-medium transition focus:border-[#0B6E4F] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B6E4F]/30"
+                    className="mt-2 min-h-12 w-full rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-4 text-[#121212] font-medium transition focus:border-[#0D9488] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0D9488]/30"
                     id={label.toLowerCase()}
                     name={label.toLowerCase()}
                     required
@@ -165,7 +165,7 @@ export function ContactPage() {
                   Your Message
                 </label>
                 <textarea
-                  className="mt-2 min-h-36 w-full rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-4 py-3 text-[#121212] font-medium transition focus:border-[#0B6E4F] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B6E4F]/30"
+                  className="mt-2 min-h-36 w-full rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] px-4 py-3 text-[#121212] font-medium transition focus:border-[#0D9488] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0D9488]/30"
                   id="message"
                   name="message"
                   placeholder="Tell us what is on your mind..."
@@ -174,7 +174,7 @@ export function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#121212] px-6 py-3 text-sm font-black text-white shadow-sm transition hover:bg-[#FFB703] hover:text-[#121212]"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#121212] px-6 py-3 text-sm font-black text-white shadow-sm transition hover:bg-[#22D3EE] hover:text-[#121212]"
               >
                 Send Message
               </button>
@@ -189,17 +189,17 @@ export function ContactPage() {
               <div className="mt-5 grid gap-3">
                 {contactItems.map(({ icon: Icon, label, value, href }) => (
                   <a
-                    className="group flex items-center gap-4 rounded-xl border border-[#E5E7EB] p-3 transition hover:border-[#0B6E4F] hover:bg-[#edf7f2]"
+                    className="group flex items-center gap-4 rounded-xl border border-[#E5E7EB] p-3 transition hover:border-[#0D9488] hover:bg-[#ECFEFF]"
                     href={href}
                     key={label}
                     rel="noreferrer"
                     target={label === 'WhatsApp' ? '_blank' : undefined}
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B6E4F] text-white transition group-hover:scale-105">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0D9488] text-white transition group-hover:scale-105">
                       <Icon aria-hidden size={18} />
                     </div>
                     <div>
-                      <p className="text-xs font-black uppercase tracking-wider text-[#0B6E4F]">{label}</p>
+                      <p className="text-xs font-black uppercase tracking-wider text-[#0D9488]">{label}</p>
                       <p className="text-sm font-bold text-[#121212]">{value}</p>
                     </div>
                   </a>
@@ -219,7 +219,7 @@ export function ContactPage() {
             {/* Social links */}
             <Card className="rounded-2xl border border-[#E5E7EB] p-7">
               <h2 className="text-xl font-black text-[#121212]">Find us on social</h2>
-              <p className="mt-1 text-sm text-[#4B5563]">We share updates, project news, and reply on social too.</p>
+              <p className="mt-1 text-sm text-[#4B5563]">We share updates, marketplace news, and reply on social too.</p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {socialLinks.map(({ label, href, icon, color }) => (
                   <a
@@ -239,7 +239,7 @@ export function ContactPage() {
             </Card>
 
             {/* WhatsApp channel CTA - Solid emerald green with black button that turns orange on hover */}
-            <div className="rounded-2xl bg-[#0B6E4F] p-6 text-white shadow-sm">
+            <div className="rounded-2xl bg-[#0D9488] p-6 text-white shadow-sm">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366] text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -247,12 +247,12 @@ export function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-black text-[#FFB703]">Join our WhatsApp Channel</p>
-                  <p className="text-sm font-medium text-white/90">Stay updated on civic projects</p>
+                  <p className="font-black text-[#22D3EE]">Join our WhatsApp Channel</p>
+                  <p className="text-sm font-medium text-white/90">Stay updated on SIVIQ marketplace news</p>
                 </div>
               </div>
               <a
-                className="mt-4 block rounded-xl bg-[#121212] px-5 py-3.5 text-center text-sm font-black text-white transition hover:bg-[#FFB703] hover:text-[#121212] shadow-sm"
+                className="mt-4 block rounded-xl bg-[#121212] px-5 py-3.5 text-center text-sm font-black text-white transition hover:bg-[#22D3EE] hover:text-[#121212] shadow-sm"
                 href={site.whatsappChannel}
                 rel="noreferrer"
                 target="_blank"

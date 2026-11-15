@@ -25,7 +25,7 @@ function NoticeBox({ notice }: { notice: Notice }) {
     const Icon = notice.kind === 'error' ? AlertCircle : CheckCircle2
     return (
         <div
-            className={`mt-5 flex gap-3 rounded-xl p-4 text-sm ${notice.kind === 'error' ? 'bg-red-50 text-red-800' : 'bg-[#edf7f2] text-[#07543d]'}`}
+            className={`mt-5 flex gap-3 rounded-xl p-4 text-sm ${notice.kind === 'error' ? 'bg-red-50 text-red-800' : 'bg-[#ECFEFF] text-[#115E59]'}`}
             role="status"
         >
             <Icon className="mt-0.5 h-5 w-5 shrink-0" />
@@ -121,10 +121,10 @@ export function ProfileSetupPage() {
         return (
             <>
                 <Seo title="Profile setup | SIVIQ" description="Complete your SIVIQ profile to get started." />
-                <Section className="bg-[#f7f9f8]" eyebrow="SIVIQ account" title="Setting up your profile">
+                <Section className="bg-[#F5F9FC]" eyebrow="SIVIQ account" title="Setting up your profile">
                     <div className="mx-auto max-w-md">
                         <Card>
-                            <div className="flex items-center justify-center gap-2 py-6 text-sm font-semibold text-[#0B6E4F]">
+                            <div className="flex items-center justify-center gap-2 py-6 text-sm font-semibold text-[#0D9488]">
                                 <LoaderCircle className="h-5 w-5 animate-spin" />
                                 Loading…
                             </div>
@@ -138,10 +138,10 @@ export function ProfileSetupPage() {
     return (
         <>
             <Seo title="Profile setup | SIVIQ" description="Complete your SIVIQ profile to get started." />
-            <Section className="bg-[#f7f9f8]" eyebrow="SIVIQ account" title="Complete your profile">
+            <Section className="bg-[#F5F9FC]" eyebrow="SIVIQ account" title="Complete your profile">
                 <div className="mx-auto max-w-md">
                     <Card>
-                        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#edf7f2] text-[#0B6E4F]">
+                        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#ECFEFF] text-[#0D9488]">
                             <UserCircle2 className="h-6 w-6" />
                         </div>
                         <p className="mb-6 text-slate-600">
@@ -214,7 +214,7 @@ export function ProfileSetupPage() {
                             )}
 
                             <button
-                                className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#0B6E4F] px-5 py-3 font-semibold text-white transition hover:bg-[#095f45] disabled:cursor-not-allowed disabled:opacity-60"
+                                className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#0D9488] px-5 py-3 font-semibold text-white transition hover:bg-[#0F766E] disabled:cursor-not-allowed disabled:opacity-60"
                                 disabled={loading}
                                 type="submit"
                             >

@@ -48,7 +48,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[#E5E7EB] bg-white text-[#121212]">
       {/* Solid green accent line (no gradient) */}
-      <div className="h-1 w-full bg-[#0B6E4F]" />
+      <div className="h-1 w-full bg-[#0D9488]" />
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
@@ -56,17 +56,17 @@ export function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-3">
               <img
-                className="h-11 w-11 rounded-xl object-cover ring-2 ring-[#0B6E4F]/30"
+                className="h-11 w-11 rounded-xl object-cover ring-2 ring-[#0D9488]/30"
                 src={site.logo}
-                alt="SIVIQ Africa logo"
+                alt="SIVIQ logo"
               />
               <div>
-                <p className="text-lg font-black text-[#121212] tracking-tight">SIVIQ Africa</p>
-                <p className="text-xs font-bold text-[#0B6E4F]">{site.tagline}</p>
+                <p className="text-lg font-black text-[#121212] tracking-tight">SIVIQ</p>
+                <p className="text-xs font-bold text-[#0D9488]">{site.tagline}</p>
               </div>
             </div>
             <p className="max-w-sm text-sm leading-6 text-[#4B5563]">
-              Independent civic accountability technology for communities reporting, discussing, verifying, and tracking public projects across Kenya.
+              Campus-first social commerce and freelance marketplace — connecting buyers, sellers, and service providers across Kenyan communities.
             </p>
 
             {/* Social media icons styled matching the Contact page theme */}
@@ -74,7 +74,7 @@ export function Footer() {
               {socials.map(({ label, href, icon, color }) => (
                 <a
                   aria-label={label}
-                  className="group flex items-center gap-2 rounded-xl border border-[#E5E7EB] bg-white px-3 py-2 text-xs font-bold text-[#374151] transition hover:border-[#0B6E4F] hover:shadow-sm"
+                  className="group flex items-center gap-2 rounded-xl border border-[#E5E7EB] bg-white px-3 py-2 text-xs font-bold text-[#374151] transition hover:border-[#0D9488] hover:shadow-sm"
                   href={href}
                   key={label}
                   rel="noreferrer"
@@ -94,15 +94,15 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h2 className="mb-4 text-xs font-black uppercase tracking-widest text-[#0B6E4F]">Quick Links</h2>
+            <h2 className="mb-4 text-xs font-black uppercase tracking-widest text-[#0D9488]">Quick Links</h2>
             <ul className="grid gap-2.5 text-sm font-semibold text-[#4B5563]">
               {footerLinks.map((item) => (
                 <li key={item.href}>
                   <Link
-                    className="group flex items-center gap-2 transition-colors hover:text-[#0B6E4F]"
+                    className="group flex items-center gap-2 transition-colors hover:text-[#0D9488]"
                     to={item.href}
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#0B6E4F] transition-all group-hover:w-3" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0D9488] transition-all group-hover:w-3" />
                     {item.label}
                   </Link>
                 </li>
@@ -112,22 +112,22 @@ export function Footer() {
 
           {/* Contact info */}
           <div>
-            <h2 className="mb-4 text-xs font-black uppercase tracking-widest text-[#0B6E4F]">Contact</h2>
+            <h2 className="mb-4 text-xs font-black uppercase tracking-widest text-[#0D9488]">Contact</h2>
             <div className="grid gap-3 text-sm font-medium text-[#4B5563]">
               {[site.emails.support, site.emails.info, site.emails.admin].map((email) => (
                 <a
-                  className="flex items-center gap-2.5 transition-colors hover:text-[#0B6E4F]"
+                  className="flex items-center gap-2.5 transition-colors hover:text-[#0D9488]"
                   href={`mailto:${email}`}
                   key={email}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="shrink-0 text-[#0B6E4F]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="shrink-0 text-[#0D9488]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <span>{email}</span>
                 </a>
               ))}
               <a
-                className="flex items-center gap-2.5 font-bold text-[#128C7E] transition-colors hover:text-[#0B6E4F]"
+                className="flex items-center gap-2.5 font-bold text-[#128C7E] transition-colors hover:text-[#0D9488]"
                 href={`https://wa.me/${site.whatsapp.replace('+', '')}`}
                 rel="noreferrer"
                 target="_blank"
@@ -143,7 +143,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-[#E5E7EB] pt-6 text-center text-xs font-semibold text-[#6B7280]">
-          <p>© {new Date().getFullYear()} SIVIQ Africa. All Rights Reserved. Independent and not government affiliated.</p>
+          <p>© {new Date().getFullYear()} SIVIQ. All Rights Reserved. Your Campus. Your Market. Your Network.</p>
         </div>
       </div>
     </footer>
